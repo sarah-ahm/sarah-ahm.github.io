@@ -3,11 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 25th, Hena</title>
+<title>Happy Birthday, Hena</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Moms Typewriter';
+    src: url('assets/moms_typewriter.ttf') format('truetype'),
+         url('assets/MomsTypewriter.ttf') format('truetype'),
+         url('assets/moms-typewriter.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .typewriter {
+    font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace;
+  }
+
   :root{
     --bg:#151220;
     --bg2:#1c1830;
@@ -69,7 +81,8 @@
     border:1px solid rgba(23,18,32,0.15); box-shadow:0 2px 6px rgba(0,0,0,0.25);
   }
   .tag-note{
-    display:inline-block; font-family:'Permanent Marker', cursive; font-size:0.85rem;
+    display:inline-block; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; font-size:0.85rem;
+    font-weight: bold;
     background:var(--paper); color:var(--marker); padding:0.4rem 1rem;
     border:2px solid var(--marker); box-shadow:3px 3px 0 var(--marker);
     transform:rotate(-2deg); margin-bottom:1.6rem;
@@ -141,7 +154,7 @@
   .memory-photo img{ width:100%; height:100%; object-fit:cover; display:none; position:absolute; inset:0; }
   .memory-body{ padding:1rem 0.3rem 0; }
   .memory-body h3{ margin:0 0 0.3rem; font-size:1.1rem; font-family:'Permanent Marker', cursive; font-weight:400; color:var(--marker); }
-  .memory-body p{ margin:0; color:#3a3346; line-height:1.5; font-size:0.9rem; }
+  .memory-body p{ margin:0; color:#3a3346; line-height:1.5; font-size:0.9rem; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; }
 
   .note-cluster{ display:flex; flex-wrap:wrap; justify-content:center; gap:1.2rem; margin-top:3rem; max-width:640px; }
   .sticky-note{
@@ -156,7 +169,7 @@
   .sticky-note.in:nth-child(2){ transform:rotate(2deg); }
   .sticky-note:nth-child(3){ background:var(--paper-blue); transform:rotate(-1.5deg); }
   .sticky-note.in:nth-child(3){ transform:rotate(-1.5deg); }
-  .sticky-note .label{ font-family:'Permanent Marker', cursive; font-size:0.95rem; margin-bottom:0.4rem; display:block; }
+  .sticky-note .label{ font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; font-weight: bold; font-size:0.95rem; margin-bottom:0.4rem; display:block; }
   .sticky-note .stars{ font-size:1rem; letter-spacing:0.1em; color:var(--gold); text-shadow:0 1px 0 rgba(23,18,32,0.4); }
 
   /* QUIZ */
@@ -206,8 +219,8 @@
   .card-front-name{ font-size:2.1rem; margin-top:0.4rem; color:var(--pink); }
   .card-tap{ margin-top:1.5rem; font-size:0.8rem; opacity:0.65; animation:pulseTap 2s ease-in-out infinite; }
   @keyframes pulseTap{ 0%,100%{opacity:0.4;} 50%{opacity:0.85;} }
-  .card-back p{ line-height:1.65; font-size:1rem; margin:0; }
-  .card-back .signature{ margin-top:1.3rem; font-family:'Permanent Marker', cursive; font-size:1rem; color:var(--blue); }
+  .card-back p{ line-height:1.65; font-size:1rem; margin:0; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; }
+  .card-back .signature{ margin-top:1.3rem; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; font-weight: bold; font-size:1rem; color:var(--blue); }
 
   #confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:50; }
 
@@ -217,7 +230,7 @@
     display:flex; justify-content:space-between; align-items:center;
     padding:0 0.2rem 0.7rem; font-family:'Space Grotesk'; font-size:0.95rem; color:var(--ink-dim);
   }
-  .game-hud strong{ color:var(--gold); font-family:'Permanent Marker', cursive; font-weight:400; }
+  .game-hud strong{ color:var(--gold); font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; font-weight:400; }
   #gameCanvas{
     width:100%; height:auto; aspect-ratio:480/560; display:block;
     background:linear-gradient(180deg, var(--bg2), var(--bg3));
@@ -231,7 +244,184 @@
   .game-overlay p{ color:var(--ink-dim); max-width:22rem; line-height:1.55; margin:0; font-size:0.95rem; }
   .game-overlay.hidden{ display:none; }
 
-  footer{ text-align:center; color:var(--ink-dim); opacity:0.5; font-size:0.75rem; padding:2rem 1rem; font-family:'Permanent Marker', cursive; }
+  footer{ text-align:center; color:var(--ink-dim); opacity:0.5; font-size:0.75rem; padding:2rem 1rem; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; }
+
+  /* OIIA GOOSY EASTER EGG */
+  .oiia-float-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background: var(--pink);
+    color: var(--marker);
+    border: 3px solid var(--marker);
+    border-radius: 50px;
+    padding: 0.5rem 1.1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--marker);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .oiia-float-btn:hover {
+    transform: translate(-2px, -2px) scale(1.05);
+    box-shadow: 6px 6px 0 var(--marker);
+  }
+  .oiia-float-btn:active {
+    transform: translate(2px, 2px) scale(0.95);
+    box-shadow: 2px 2px 0 var(--marker);
+  }
+  .oiia-btn-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--marker);
+  }
+  .oiia-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(21, 18, 32, 0.96);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .oiia-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .oiia-overlay.hidden {
+    display: none;
+  }
+  .oiia-container {
+    position: relative;
+    width: 90%;
+    max-width: 440px;
+    background: var(--paper);
+    color: var(--marker);
+    border: 4px solid var(--marker);
+    box-shadow: 12px 12px 0 var(--pink);
+    border-radius: 20px;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .oiia-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--gold);
+    border: 2px solid var(--marker);
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0 var(--marker);
+    z-index: 10;
+  }
+  .oiia-close:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--marker);
+  }
+  .oiia-rainbow-disc {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #ff4fa3, #5b79ff, #ffc93c, #ff4fa3);
+    opacity: 0.18;
+    filter: blur(15px);
+    animation: disc-spin 6s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+  @keyframes disc-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .oiia-stretch-wrap {
+    z-index: 1;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    animation: oiia-stretch 0.5s ease-in-out infinite alternate;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  .oiia-spinning-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+    animation: oiia-spin 1.2s linear infinite;
+  }
+  @keyframes oiia-spin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+  @keyframes oiia-stretch {
+    0% { transform: scaleY(0.8) scaleX(1.2); }
+    100% { transform: scaleY(1.2) scaleX(0.8); }
+  }
+  .oiia-title {
+    font-size: 3rem;
+    margin: 0;
+    color: var(--pink);
+    text-shadow: 3px 3px 0 var(--blue);
+    animation: title-bounce 0.5s ease-in-out infinite alternate;
+    z-index: 1;
+  }
+  @keyframes title-bounce {
+    0% { transform: scale(0.9) rotate(-2deg); }
+    100% { transform: scale(1.1) rotate(2deg); }
+  }
+  .oiia-subtitle {
+    font-size: 1rem;
+    margin: 0;
+    color: #3a3346;
+    z-index: 1;
+  }
+  .oiia-controls {
+    z-index: 1;
+  }
+  .oiia-marquee {
+    width: 120%;
+    background: var(--marker);
+    color: var(--gold);
+    transform: rotate(-3deg);
+    padding: 0.4rem 0;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 0.9rem;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  .oiia-marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee-spin 12s linear infinite;
+  }
+  @keyframes marquee-spin {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+  }
 </style>
 </head>
 <body>
@@ -242,23 +432,24 @@
 
 <!-- HERO -->
 <section id="hero">
-  <h1 class="poster">HAPPY 25TH<span class="marker name">Hena</span></h1>
+  <h1 class="poster">HAPPY BIRTHDAY<span class="marker name">Hena</span></h1>
   <a href="#game" class="scroll-cta">play the game →</a>
   <div class="bounce">↓</div>
 </section>
 
 <!-- GAME -->
 <section id="game">
-  <div class="tag-note">you're a tuxedo cat 🐈‍⬛</div>
+  <div class="tag-note">you're Goosy 🐾</div>
   <h2 class="poster">catch the vibes</h2>
   <p class="section-sub">Catch the good stuff, dodge the deadlines. Arrow keys, drag, or mouse.</p>
 
   <div class="game-wrap">
     <div class="game-hud">
       <span>Score: <strong id="gameScore">0</strong></span>
+      <span>High Score: <strong id="gameHighScore">0</strong></span>
       <span id="gameLives">❤️❤️❤️</span>
     </div>
-    <canvas id="gameCanvas" width="480" height="560" aria-label="Catch the vibes game, move the tuxedo cat to catch falling items"></canvas>
+    <canvas id="gameCanvas" width="480" height="560" aria-label="Catch the vibes game, move the Goosy cat to catch falling items"></canvas>
     <div class="game-overlay" id="gameOverlay">
       <p id="gameOverlayText">☕📖🧥🎵🐰 good, 📄 bad. Three lives.</p>
       <button class="sticker-btn" id="gameStartBtn">play</button>
@@ -268,45 +459,43 @@
 
 <!-- MEMORIES -->
 <section id="memories">
-  <h2 class="poster">a few reasons we love you</h2>
+  <h2 class="poster">The Potatoes of Your Life</h2>
 
   <div class="memory-grid" id="memoryGrid">
     <div class="memory-card">
       <div class="tape"></div>
       <div class="memory-photo">
-        <img src="assets/bunbun.jpg" alt="BunBun the backyard bunny" id="photo-bunbun">
-        <span class="placeholder-icon">🐇</span>
-        <span class="placeholder-label">add photo as <code>assets/bunbun.jpg</code></span>
+        <img src="assets/IMG_0301.JPG" alt="BunBun the backyard bunny" id="photo-bunbun" style="display: block;">
       </div>
       <div class="memory-body">
         <h3>BunBun</h3>
-        <p>The backyard bunny. No lease, no job, just vibes.</p>
+        <p class="typewriter">She come, she go, nobody knows.</p>
       </div>
     </div>
     <div class="memory-card">
       <div class="tape"></div>
       <div class="memory-photo">
-        <img src="assets/bedtime.jpg" alt="Giggling in bed with our youngest sister" id="photo-bedtime">
-        <span class="placeholder-icon">🛏️</span>
-        <span class="placeholder-label">add photo as <code>assets/bedtime.jpg</code></span>
+        <img src="assets/Screenshot_20230423_144041_Instagram.jpg" alt="Chonky Goosy" id="photo-chonky" style="display: block;">
       </div>
       <div class="memory-body">
-        <h3>3am, no reason</h3>
-        <p>Three of us, one bed, laughing way too loud.</p>
+        <h3>Chonky</h3>
+        <p class="typewriter">A true potato.</p>
       </div>
     </div>
     <div class="memory-card">
       <div class="tape"></div>
       <div class="memory-photo">
-        <img src="assets/together.jpg" alt="You and your sisters" id="photo-together">
-        <span class="placeholder-icon">📚</span>
-        <span class="placeholder-label">add photo as <code>assets/together.jpg</code></span>
+        <img src="assets/goose-stare-fullbody.png" alt="Goose" id="photo-goose-birth" style="display: block;">
       </div>
       <div class="memory-body">
-        <h3>Just, generally, you</h3>
-        <p>PhD, Percy Jackson, thrifted fits, Goosy. All of it.</p>
+        <h3>Goose</h3>
+        <p class="typewriter">That time you gave birth to a Goose. What horror.</p>
       </div>
     </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <button class="sticker-btn" id="showMoreMemoriesBtn">see more memories 📸</button>
   </div>
 
   <div class="note-cluster" id="noteCluster">
@@ -318,9 +507,9 @@
 
 <!-- QUIZ -->
 <section id="quiz">
-  <div class="tag-note">a very scientific test</div>
-  <h2 class="poster">what kind of Goosy are you?</h2>
-  <p class="section-sub">Answer honestly. Goosy is watching from the windowsill either way.</p>
+  <div class="tag-note">a very scientific personality quiz</div>
+  <h2 class="poster">what kind of goose are you?</h2>
+  <p class="section-sub">Answer honestly. Goosy is watching.</p>
 
   <div class="quiz-card" id="quizCard">
     <div class="quiz-progress" id="quizProgress"></div>
@@ -335,31 +524,47 @@
     <div class="card-flip" id="cardFlip" role="button" tabindex="0" aria-label="Open birthday card">
       <div class="card-face card-front">
         <div class="tape"></div>
-        <div class="card-cat" aria-hidden="true">
-          <svg viewBox="0 0 120 120" width="80" height="80">
-            <polygon points="18,34 32,6 46,34" fill="#171220"/>
-            <polygon points="74,34 88,6 102,34" fill="#171220"/>
-            <rect x="14" y="30" width="92" height="70" rx="30" fill="#171220"/>
-            <ellipse cx="60" cy="72" rx="30" ry="26" fill="#efe6d2"/>
-            <circle cx="44" cy="60" r="4.2" fill="#171220"/>
-            <circle cx="76" cy="60" r="4.2" fill="#171220"/>
-            <circle cx="60" cy="72" r="3.4" fill="#ff4fa3"/>
-          </svg>
+        <div class="card-cat" aria-hidden="true" style="margin-bottom: 1rem;">
+          <img src="assets/goose-angry.png" alt="Goosy Head" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid var(--marker); box-shadow: 4px 4px 0 var(--pink);">
         </div>
-        <div class="card-front-title poster">HAPPY<br>25TH</div>
+        <div class="card-front-title poster">HAPPY<br>BIRTHDAY</div>
         <div class="card-front-name marker">Hena</div>
         <div class="card-tap">tap to open ✨</div>
       </div>
       <div class="card-face card-back">
         <div class="tape"></div>
-        <p>Here's to 25. Go celebrate — and give Goosy a little extra love from all of us.</p>
-        <div class="signature">— your very proud sibling</div>
+        <p>HAPPY BIRTHDAY LADY WE LOVETH YOU.</p>
+        <div class="signature">— YO FAM</div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>made with love (and Goosy hair) for Hena's 25th</footer>
+<!-- OIIA GOOSY EASTER EGG -->
+<button id="oiiaBtn" class="oiia-float-btn" aria-label="Oiia Goosy Easter Egg">
+  <img src="assets/goose-angry.png" alt="Goosy Head" class="oiia-btn-icon">
+  <span>Oiia Goosy! 🎵</span>
+</button>
+
+<div id="oiiaOverlay" class="oiia-overlay hidden">
+  <div class="oiia-container">
+    <button class="oiia-close" id="oiiaClose" aria-label="Close easter egg">×</button>
+    <div class="oiia-rainbow-disc"></div>
+    <div class="oiia-stretch-wrap">
+      <img src="assets/goose-stare-fullbody.png" alt="Spinning Goosy" class="oiia-spinning-img">
+    </div>
+    <h2 class="oiia-title poster">OIIA OIIA!</h2>
+    <p class="oiia-subtitle typewriter">Goosy is spinning into the 25th dimension! 🌀</p>
+    <div class="oiia-controls">
+      <button class="sticker-btn" id="oiiaAudioToggle">🎵 Enable Sound</button>
+    </div>
+    <div class="oiia-marquee">
+      <div class="oiia-marquee-content">OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA</div>
+    </div>
+  </div>
+</div>
+
+<footer>made with love and goose vibes</footer>
 
 <script>
 // scroll reveal
@@ -374,14 +579,48 @@ const io = new IntersectionObserver((entries)=>{
 }, {threshold:0.25});
 revealEls.forEach(el=> io.observe(el));
 
-// swap in real photos if present
-['bunbun','bedtime','together'].forEach(id=>{
-  const img = document.getElementById('photo-'+id);
-  img.onload = ()=>{
-    img.style.display='block';
-    img.parentElement.querySelectorAll('.placeholder-icon, .placeholder-label').forEach(el=> el.style.display='none');
-  };
-});
+// "See More Memories" dynamic loading
+const extraMemories = [
+  { src: 'assets/20230509_145047.jpg', title: 'Sisters & Sunshine ☀️', desc: 'Making every ordinary moment feel special.' },
+  { src: 'assets/IMG_0300.JPG', title: 'Backyard BunBun 🐇', desc: 'The garden legend making another guest appearance.' },
+  { src: 'assets/IMG-20230513-WA0024.jpg', title: 'Thrifts & Fits 🧥', desc: 'Effortlessly iconic, as always.' },
+  { src: 'assets/IMG_0009-303063315-O.jpg', title: 'Quiet times 📖', desc: 'Lost in another Percy Jackson adventure.' },
+  { src: 'assets/IMG_0010-303063431-O.jpg', title: 'Late night sessions ☕', desc: 'Sipping coffee and chatting till the sun comes up.' },
+  { src: 'assets/IMG_0094.JPG', title: 'Sisters forever 💖', desc: 'Through every chapter, always side by side.' },
+  { src: 'assets/IMG_0095.JPG', title: 'Double trouble 👯', desc: 'Sharing clothes, sharing laughs, sharing life.' },
+  { src: 'assets/Picture507+036-149454534-O.jpg', title: 'Golden hour ✨', desc: 'When the lighting is just as bright as your smile.' },
+  { src: 'assets/Screenshot_20220523-100555_Instagram.jpg', title: 'Instagram gold 📸', desc: 'Saving memories one story at a time.' },
+  { src: 'assets/Screenshot_20230423_144041_Instagram.jpg', title: 'Just Goosy things 🐈', desc: 'The absolute ruler of the windowsill.' }
+];
+
+const showBtn = document.getElementById('showMoreMemoriesBtn');
+if (showBtn) {
+  showBtn.addEventListener('click', () => {
+    const grid = document.getElementById('memoryGrid');
+    extraMemories.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.className = 'memory-card';
+      const angle = (Math.random() * 6 - 3).toFixed(1);
+      card.style.setProperty('--r', `${angle}deg`);
+      card.innerHTML = `
+        <div class="tape"></div>
+        <div class="memory-photo">
+          <img src="${item.src}" alt="${item.title}" style="display: block;">
+        </div>
+        <div class="memory-body">
+          <h3>${item.title}</h3>
+          <p class="typewriter">${item.desc}</p>
+        </div>
+      `;
+      grid.appendChild(card);
+      // staggered slide in
+      setTimeout(() => {
+        card.classList.add('in');
+      }, 100 + idx * 85);
+    });
+    showBtn.style.display = 'none';
+  });
+}
 
 // confetti
 const canvas = document.getElementById('confetti-canvas');
@@ -445,38 +684,38 @@ cardFlip.addEventListener('keydown', (e)=>{
 (function(){
   const quizQuestions = [
     {
-      q: "It's 2am. What's happening right now?",
+      q: "It's 10pm. What are you doing?",
       options: [
-        {text:"Sitting directly on the nearest warm laptop", type:"loaf", emoji:"💻"},
+        {text:"Sitting on the nearest warm laptop", type:"loaf", emoji:"💻"},
         {text:"Sprinting across the apartment for no reason", type:"feral", emoji:"⚡"},
-        {text:"Staring at the door like something's wrong", type:"judge", emoji:"👁️"},
-        {text:"Climbing into the nearest lap, allergies be damned", type:"lap", emoji:"🤧"},
+        {text:"Staring at the wall", type:"judge", emoji:"👁️"},
+        {text:"Sneezing because you're cuddling with a Goose", type:"lap", emoji:"🤧"},
       ]
     },
     {
-      q: "Someone tries to move you off the couch.",
+      q: "You are eepy. What do you do?",
       options: [
-        {text:"Reappear in the exact same spot in four minutes", type:"judge", emoji:"🐾"},
-        {text:"Immediate zoomies, no notes", type:"feral", emoji:"💨"},
-        {text:"Go dead weight. Do not move.", type:"loaf", emoji:"🍞"},
-        {text:"Climb right back into their lap", type:"lap", emoji:"❤️"},
+        {text:"Take Sana's spot on the couch when she's not looking", type:"judge", emoji:"🐾"},
+        {text:"Zoomies first, sleep later", type:"feral", emoji:"💨"},
+        {text:"Loaf mode on the the carpet", type:"loaf", emoji:"🍞"},
+        {text:"Cuddle with the nearest approved hooman", type:"lap", emoji:"❤️"},
       ]
     },
     {
-      q: "Pick a 2am snack.",
+      q: "You hungry. Pick a snack.",
       options: [
-        {text:"Coffee. Obviously.", type:"loaf", emoji:"☕"},
-        {text:"Whatever's on the counter, unsupervised", type:"feral", emoji:"🧥"},
-        {text:"Nothing. You're too busy judging everyone else's choices.", type:"judge", emoji:"🍽️"},
-        {text:"Anything, as long as it's shared from a lap", type:"lap", emoji:"🥄"},
+        {text:"Iced coffee because you need caffeine", type:"loaf", emoji:"☕"},
+        {text:"Whatever's on the counter hehehe", type:"feral", emoji:"🧥"},
+        {text:"No snacks, you only eat proper meals", type:"judge", emoji:"🍽️"},
+        {text:"Lickin' some ce cream while you cuddle with a Goose in front of the TV", type:"lap", emoji:"🥄"},
       ]
     },
     {
-      q: "Pick a memory.",
+      q: "You are staring at the wall, having childhood flashbacks. What are you remembering?",
       options: [
-        {text:"BunBun showing up in the backyard, uninvited", type:"feral", image:"assets/bunbun.jpg", fallback:"🐇"},
-        {text:"Giggling in bed at 3am with your sisters", type:"lap", image:"assets/bedtime.jpg", fallback:"🛏️"},
-        {text:"A quiet, ordinary day together", type:"judge", image:"assets/together.jpg", fallback:"📚"},
+        {text:"BunBun showing up in the backyard, uninvited", type:"feral", image:"assets/IMG_0301.JPG", fallback:"🐇"},
+        {text:"Giggling in bed at 3am with your sisters", type:"lap", image:"assets/20230509_153011.jpg", fallback:"🛏️"},
+        {text:"A quiet, ordinary day together", type:"judge", image:"assets/Grad+075-890457830-O.jpg", fallback:"📚"},
         {text:"Doom-scrolling Smosh instead of sleeping", type:"loaf", emoji:"📱"},
       ]
     },
@@ -493,20 +732,20 @@ cardFlip.addEventListener('keydown', (e)=>{
 
   const results = {
     loaf: {
-      title:"Loaf Goosy",
-      desc:"You've fully melted into whatever surface is warmest — usually a laptop mid-Zoom call — and you are not moving for anyone. PhD deadline? Not your problem right now. You are a loaf. A very cute, very immovable loaf."
+      title:"Loaf Goose",
+      desc:"You're fully melted into whatever surface is warmest and not moving for anyone or anything. Deadline? Not yo problem. You are loaf."
     },
     feral: {
-      title:"Feral 3am Goosy",
-      desc:"Zero warning, all chaos. One second you're asleep, the next you're sprinting full speed through the apartment at 3am for reasons only you understand. Everyone else just has to live with it, same as Goosy's roommates."
+      title:"Posessed Goose",
+      desc:"You're sprinting at full speed through the apartment for reasons only you understand. Posessed or just vibing, no one will ever know."
     },
     judge: {
-      title:"Judgmental Goosy",
-      desc:"You watch. You wait. You say nothing. And yet somehow everyone in the room knows exactly what you think of their life choices. Classic stubborn Taurus energy, allergic sister included."
+      title:"Taurus Goose",
+      desc:"You judge silently while rocking them sweatpants. Sometimes you moo. Such is the life of a Taurus Goose."
     },
     lap: {
-      title:"Lap Goosy",
-      desc:"Allergies be damned, you are getting in that lap. Ten minutes, twenty minutes, doesn't matter — you've chosen your person and you are staying exactly where you are, sneezing be damned."
+      title:"Cuddle Goosy",
+      desc:"You are eepy and have found a wonderful heat source. What a potato."
     }
   };
 
@@ -564,12 +803,12 @@ cardFlip.addEventListener('keydown', (e)=>{
   renderQuestion();
 })();
 
-// ---- catch the vibes: tuxedo cat game ----
+// ---- catch the vibes: Goosy catcher game ----
 (function(){
   const canvas = document.getElementById('gameCanvas');
   const gctx = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height;
-  const catW = 92, catH = 58;
+  const catW = 86, catH = 86; // Square layout matches Goosy's face image
   const catY = H - catH - 14;
   let catX = W/2;
 
@@ -588,6 +827,70 @@ cardFlip.addEventListener('keydown', (e)=>{
   let lastTime = 0, spawnTimer = 0;
   const keys = {};
 
+  // Particle trail system for magical feedback
+  let trailParticles = [];
+  const trailColors = ['#ffc93c', '#ff4fa3', '#5b79ff']; // Gold, Pink, Blue accents
+
+  function spawnTrailParticle(x, y) {
+    if (x === null || y === null) return;
+    const count = 2; // spawn a couple of particles for depth
+    for (let i = 0; i < count; i++) {
+      trailParticles.push({
+        x: x,
+        y: y,
+        vx: (Math.random() - 0.5) * 3,
+        vy: (Math.random() - 0.5) * 3 - 0.5, // slight upward float
+        size: 3 + Math.random() * 6,
+        color: trailColors[Math.floor(Math.random() * trailColors.length)],
+        alpha: 1.0,
+        decay: 0.02 + Math.random() * 0.025,
+        shape: Math.random() < 0.45 ? 'star' : 'circle'
+      });
+    }
+  }
+
+  function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, color, alpha) {
+    let rot = Math.PI / 2 * 3;
+    let x = cx;
+    let y = cy;
+    let step = Math.PI / spikes;
+
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - outerRadius);
+    for (let i = 0; i < spikes; i++) {
+      x = cx + Math.cos(rot) * outerRadius;
+      y = cy + Math.sin(rot) * outerRadius;
+      ctx.lineTo(x, y);
+      rot += step;
+
+      x = cx + Math.cos(rot) * innerRadius;
+      y = cy + Math.sin(rot) * innerRadius;
+      ctx.lineTo(x, y);
+      rot += step;
+    }
+    ctx.lineTo(cx, cy - outerRadius);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawCircleParticle(ctx, x, y, radius, color, alpha) {
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // Image loader for playing as Goosy
+  const goosyImg = new Image();
+  goosyImg.src = 'assets/goose-angry.png';
+
   function roundRect(ctx,x,y,w,h,r){
     ctx.beginPath();
     ctx.moveTo(x+r,y);
@@ -599,23 +902,51 @@ cardFlip.addEventListener('keydown', (e)=>{
   }
 
   function drawCat(ctx,x,y,w,h){
-    ctx.fillStyle = '#171220';
-    ctx.beginPath(); ctx.moveTo(x-w/2+6,y+8); ctx.lineTo(x-w/2+20,y-14); ctx.lineTo(x-w/2+34,y+8); ctx.closePath(); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(x+w/2-6,y+8); ctx.lineTo(x+w/2-20,y-14); ctx.lineTo(x+w/2-34,y+8); ctx.closePath(); ctx.fill();
-    roundRect(ctx, x-w/2, y, w, h, 18); ctx.fill();
-    ctx.fillStyle = '#efe6d2';
-    roundRect(ctx, x-w/2+16, y+h*0.32, w-32, h*0.68, 14); ctx.fill();
-    ctx.beginPath(); ctx.ellipse(x-w/2+20, y+h-4, 13,9,0,0,Math.PI*2); ctx.fill();
-    ctx.beginPath(); ctx.ellipse(x+w/2-20, y+h-4, 13,9,0,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle = '#171220';
-    ctx.beginPath(); ctx.arc(x-15, y+h*0.3, 3.2, 0, Math.PI*2); ctx.fill();
-    ctx.beginPath(); ctx.arc(x+15, y+h*0.3, 3.2, 0, Math.PI*2); ctx.fill();
-    ctx.fillStyle = '#ff4fa3';
-    ctx.beginPath(); ctx.arc(x, y+h*0.42, 3, 0, Math.PI*2); ctx.fill();
+    if (goosyImg.complete && goosyImg.naturalWidth !== 0) {
+      // Draw actual circular clipping path so Goosy's face fits beautifully on the canvas
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y + h/2, w/2, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      ctx.drawImage(goosyImg, x - w/2, y, w, h);
+      ctx.restore();
+      
+      // Draw border ring around clipping path
+      ctx.strokeStyle = '#171220';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(x, y + h/2, w/2, 0, Math.PI * 2);
+      ctx.stroke();
+    } else {
+      // Fallback
+      ctx.fillStyle = '#171220';
+      ctx.beginPath(); ctx.moveTo(x-w/2+6,y+8); ctx.lineTo(x-w/2+20,y-14); ctx.lineTo(x-w/2+34,y+8); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x+w/2-6,y+8); ctx.lineTo(x+w/2-20,y-14); ctx.lineTo(x+w/2-34,y+8); ctx.closePath(); ctx.fill();
+      roundRect(ctx, x-w/2, y, w, h, 18); ctx.fill();
+      ctx.fillStyle = '#efe6d2';
+      roundRect(ctx, x-w/2+16, y+h*0.32, w-32, h*0.68, 14); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(x-w/2+20, y+h-4, 13,9,0,0,Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(x+w/2-20, y+h-4, 13,9,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#171220';
+      ctx.beginPath(); ctx.arc(x-15, y+h*0.3, 3.2, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x+15, y+h*0.3, 3.2, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#ff4fa3';
+      ctx.beginPath(); ctx.arc(x, y+h*0.42, 3, 0, Math.PI*2); ctx.fill();
+    }
   }
+
+  let highScore = parseInt(localStorage.getItem('hena_game_highscore') || '0', 10);
+  const highScoreEl = document.getElementById('gameHighScore');
+  if (highScoreEl) highScoreEl.textContent = highScore;
 
   function updateHUD(){
     scoreEl.textContent = score;
+    if (score > highScore) {
+      highScore = score;
+      localStorage.setItem('hena_game_highscore', highScore);
+      if (highScoreEl) highScoreEl.textContent = highScore;
+    }
     livesEl.textContent = '❤️'.repeat(Math.max(lives,0));
   }
 
@@ -655,20 +986,65 @@ cardFlip.addEventListener('keydown', (e)=>{
     lastTime = ts;
     spawnTimer += dt;
 
-    if(keys.left) catX = Math.max(catW/2, catX - 6.5);
-    if(keys.right) catX = Math.min(W - catW/2, catX + 6.5);
+    if(keys.left) {
+      catX = Math.max(catW/2, catX - 6.5);
+      // Spawn magical sparks at Goosy's side when dashing with keys
+      spawnTrailParticle(catX, catY + catH * 0.7);
+    }
+    if(keys.right) {
+      catX = Math.min(W - catW/2, catX + 6.5);
+      // Spawn magical sparks at Goosy's side when dashing with keys
+      spawnTrailParticle(catX, catY + catH * 0.7);
+    }
 
     const interval = Math.max(380, 900 - score*3);
     if(spawnTimer > interval){ spawnTimer = 0; spawnItem(); }
 
     gctx.clearRect(0,0,W,H);
 
+    // Update and draw the magical particle trail
+    trailParticles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.alpha -= p.decay;
+      p.size = Math.max(0, p.size - 0.08);
+    });
+    trailParticles = trailParticles.filter(p => p.alpha > 0 && p.size > 0);
+
+    trailParticles.forEach(p => {
+      if (p.shape === 'star') {
+        drawStar(gctx, p.x, p.y, 5, p.size, p.size * 0.4, p.color, p.alpha);
+      } else {
+        drawCircleParticle(gctx, p.x, p.y, p.size, p.color, p.alpha);
+      }
+    });
+
     items.forEach(it => { it.y += it.speed; });
 
     items = items.filter(it => {
       const caught = it.y > catY - 6 && it.y < catY + catH && Math.abs(it.x - catX) < catW/2 + 14;
       if(caught){
-        if(it.bad){ lives -= 1; } else { score += 10; }
+        if(it.bad){
+          lives -= 1;
+        } else {
+          score += 10;
+          // Spawn extra bursts of particles when catching vibes!
+          for (let i = 0; i < 8; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const sp = 1 + Math.random() * 4;
+            trailParticles.push({
+              x: it.x,
+              y: catY + 10,
+              vx: Math.cos(angle) * sp,
+              vy: Math.sin(angle) * sp - 1,
+              size: 4 + Math.random() * 6,
+              color: trailColors[Math.floor(Math.random() * trailColors.length)],
+              alpha: 1.0,
+              decay: 0.03 + Math.random() * 0.03,
+              shape: Math.random() < 0.5 ? 'star' : 'circle'
+            });
+          }
+        }
         updateHUD();
         if(lives <= 0){ endGame(); }
         return false;
@@ -695,10 +1071,25 @@ cardFlip.addEventListener('keydown', (e)=>{
     catX = Math.max(catW/2, Math.min(W - catW/2, x));
   }
 
-  canvas.addEventListener('mousemove', e => setCatFromClientX(e.clientX));
+  function handlePointerMove(clientX, clientY) {
+    setCatFromClientX(clientX);
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    const mX = (clientX - rect.left) * scaleX;
+    const mY = (clientY - rect.top) * scaleY;
+    // Spawn gorgeous magical sparks exactly at the cursor/pointer location
+    spawnTrailParticle(mX, mY);
+  }
+
+  canvas.addEventListener('mousemove', e => {
+    handlePointerMove(e.clientX, e.clientY);
+  });
   canvas.addEventListener('touchmove', e => {
     e.preventDefault();
-    setCatFromClientX(e.touches[0].clientX);
+    if (e.touches.length > 0) {
+      handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+    }
   }, {passive:false});
 
   window.addEventListener('keydown', e => {
@@ -719,6 +1110,142 @@ cardFlip.addEventListener('keydown', (e)=>{
   });
 
   drawCat(gctx, catX, catY, catW, catH);
+})();
+
+// ---- Oiia Goosy Easter Egg Interactive Controller & Synth ----
+(function() {
+  const oiiaBtn = document.getElementById('oiiaBtn');
+  const oiiaOverlay = document.getElementById('oiiaOverlay');
+  const oiiaClose = document.getElementById('oiiaClose');
+  const audioToggle = document.getElementById('oiiaAudioToggle');
+
+  let audioCtx = null;
+  let synthInterval = null;
+  let isPlaying = false;
+
+  function openEasterEgg() {
+    oiiaOverlay.classList.remove('hidden');
+    // small timeout to trigger CSS opacity transitions
+    setTimeout(() => {
+      oiiaOverlay.classList.add('active');
+    }, 10);
+  }
+
+  function closeEasterEgg() {
+    oiiaOverlay.classList.remove('active');
+    stopSynth();
+    audioToggle.classList.remove('sticker-btn-active');
+    audioToggle.textContent = '🎵 Enable Sound';
+    isPlaying = false;
+    setTimeout(() => {
+      oiiaOverlay.classList.add('hidden');
+    }, 300);
+  }
+
+  // synthesized "Oiia" loop with Web Audio API (totally offline & safe)
+  function startSynth() {
+    if (audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Notes sequence of the famous high pitched bouncy theme
+    const melody = [
+      { f: 880.00, d: 0.14 }, // A5
+      { f: 987.77, d: 0.14 }, // B5
+      { f: 1109.73, d: 0.14 }, // C#6
+      { f: 1318.51, d: 0.28 }, // E6
+      { f: 1109.73, d: 0.14 }, // C#6
+      { f: 1318.51, d: 0.28 }, // E6
+      { f: 1109.73, d: 0.14 }, // C#6
+      { f: 987.77, d: 0.14 },  // B5
+      { f: 880.00, d: 0.14 },  // A5
+      { f: 987.77, d: 0.14 },  // B5
+      { f: 1109.73, d: 0.14 }, // C#6
+      { f: 880.00, d: 0.28 }   // A5
+    ];
+
+    let index = 0;
+    let nextTime = audioCtx.currentTime;
+
+    function scheduler() {
+      while (nextTime < audioCtx.currentTime + 0.1) {
+        const item = melody[index % melody.length];
+        playNote(item.f, nextTime, item.d);
+        nextTime += item.d;
+        index++;
+      }
+      synthInterval = setTimeout(scheduler, 50);
+    }
+
+    function playNote(freq, time, dur) {
+      if (!audioCtx) return;
+      
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      const filter = audioCtx.createBiquadFilter();
+
+      // triangle for sweet retro game sound, square for heavy synth
+      osc.type = index % 3 === 0 ? 'sine' : 'triangle';
+      osc.frequency.setValueAtTime(freq, time);
+
+      // pitch bend up/down to replicate the cute, goofy sliding vocal sound
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.05, time + dur * 0.4);
+      osc.frequency.exponentialRampToValueAtTime(freq, time + dur);
+
+      // bandpass filter to give that high pitched retro radio voice feel
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(1200, time);
+      filter.Q.setValueAtTime(1.5, time);
+
+      // Volume envelope to keep notes crisp & bouncy
+      gainNode.gain.setValueAtTime(0.0, time);
+      gainNode.gain.linearRampToValueAtTime(0.12, time + 0.02);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, time + dur - 0.01);
+
+      osc.connect(filter);
+      filter.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      osc.start(time);
+      osc.stop(time + dur);
+    }
+
+    scheduler();
+  }
+
+  function stopSynth() {
+    if (synthInterval) {
+      clearTimeout(synthInterval);
+      synthInterval = null;
+    }
+    if (audioCtx) {
+      audioCtx.close();
+      audioCtx = null;
+    }
+  }
+
+  oiiaBtn.addEventListener('click', openEasterEgg);
+  oiiaClose.addEventListener('click', closeEasterEgg);
+  
+  audioToggle.addEventListener('click', () => {
+    if (!isPlaying) {
+      startSynth();
+      audioToggle.textContent = '🔊 Stop Sound';
+      audioToggle.style.background = '#ff4fa3'; // Pink active background
+      isPlaying = true;
+    } else {
+      stopSynth();
+      audioToggle.textContent = '🎵 Enable Sound';
+      audioToggle.style.background = ''; // Revert style
+      isPlaying = false;
+    }
+  });
+
+  // keyboard escape support
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !oiiaOverlay.classList.contains('hidden')) {
+      closeEasterEgg();
+    }
+  });
 })();
 </script>
 </body>
