@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 25th, Hena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#151220;
+    --bg2:#1c1830;
+    --bg3:#241d3d;
+    --ink:#f3ecdf;
+    --ink-dim:#c9bfe0;
+    --paper:#efe6d2;
+    --paper-blue:#e4e6f2;
+    --paper-pink:#f2e2e8;
+    --marker:#171220;
+    --blue:#5b79ff;
+    --pink:#ff4fa3;
+    --gold:#ffc93c;
+    --line: rgba(243,236,223,0.15);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    overflow-x:hidden;
+  }
+  .poster{ font-family:'Anton', sans-serif; text-transform:uppercase; letter-spacing:0.01em; }
+  .marker{ font-family:'Permanent Marker', cursive; font-weight:400; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  .bg-wash{
+    position:fixed; inset:0; z-index:-2;
+    background:
+      radial-gradient(ellipse at 10% 0%, rgba(91,121,255,0.14), transparent 55%),
+      radial-gradient(ellipse at 95% 100%, rgba(255,79,163,0.12), transparent 55%),
+      var(--bg);
+  }
+  .grain{
+    position:fixed; inset:0; z-index:-1; opacity:0.5; pointer-events:none; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+
+  section{
+    min-height:100vh;
+    padding: 6rem 1.5rem;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    position:relative;
+  }
+
+  .tape{
+    position:absolute; width:64px; height:22px; background:rgba(239,230,210,0.55);
+    border:1px solid rgba(23,18,32,0.15); box-shadow:0 2px 6px rgba(0,0,0,0.25);
+  }
+  .tag-note{
+    display:inline-block; font-family:'Permanent Marker', cursive; font-size:0.85rem;
+    background:var(--paper); color:var(--marker); padding:0.4rem 1rem;
+    border:2px solid var(--marker); box-shadow:3px 3px 0 var(--marker);
+    transform:rotate(-2deg); margin-bottom:1.6rem;
+  }
+
+  /* HERO */
+  #hero h1{
+    font-size:clamp(2.8rem, 12vw, 6.4rem);
+    line-height:0.95; margin:0; color:var(--ink);
+    text-shadow: 4px 4px 0 var(--pink), 8px 8px 0 var(--blue);
+    transform:rotate(-1.5deg);
+  }
+  #hero .name{
+    display:block; margin-top:0.6rem; font-size:clamp(2rem, 9vw, 4.2rem);
+    color:var(--gold); transform:rotate(1.5deg);
+  }
+  .scroll-cta{
+    display:inline-flex; align-items:center; gap:0.5rem; margin-top:3rem;
+    background:var(--pink); color:var(--marker);
+    border:3px solid var(--marker);
+    padding:0.85rem 1.9rem; font-family:'Space Grotesk'; font-size:1rem; font-weight:700;
+    cursor:pointer; text-decoration:none;
+    box-shadow:5px 5px 0 var(--marker);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .scroll-cta:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--marker); }
+  .scroll-cta:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--marker); }
+  .bounce{ animation:bounce 2s ease-in-out infinite; margin-top:2.6rem; opacity:0.6; font-size:1.6rem;}
+  @keyframes bounce{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(10px);} }
+
+  h2.poster{ font-size:clamp(1.8rem, 6vw, 2.8rem); margin:0 0 0.6rem; color:var(--ink); }
+  .section-sub{ color:var(--ink-dim); max-width:32rem; margin:0 auto 2.6rem; font-size:0.95rem; }
+
+  .sticker-btn{
+    background:var(--gold); color:var(--marker); border:3px solid var(--marker);
+    padding:0.9rem 2rem; font-family:'Space Grotesk'; font-weight:700; font-size:1rem;
+    cursor:pointer; box-shadow:5px 5px 0 var(--marker);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .sticker-btn:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--marker); }
+  .sticker-btn:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--marker); }
+
+  /* MEMORIES — polaroid cards */
+  .memory-grid{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:2.2rem 1.6rem;
+    max-width:960px; width:100%; padding-top:0.5rem;
+  }
+  .memory-card{
+    background:var(--paper); color:var(--marker); width:250px; padding:0.9rem 0.9rem 1.2rem;
+    border:1px solid rgba(23,18,32,0.2); box-shadow:0 14px 30px rgba(0,0,0,0.35);
+    text-align:left; opacity:0; transform:translateY(24px) rotate(0deg); transition:opacity 0.6s ease, transform 0.6s ease;
+    position:relative;
+  }
+  .memory-card:nth-child(1){ --r:-3deg; }
+  .memory-card:nth-child(2){ --r:2deg; }
+  .memory-card:nth-child(3){ --r:-1.5deg; }
+  .memory-card.in{ opacity:1; transform:translateY(0) rotate(var(--r)); }
+  .memory-card:hover{ transform:translateY(-4px) rotate(0deg); }
+  .memory-card .tape{ top:-12px; left:50%; margin-left:-32px; transform:rotate(-3deg); }
+  .memory-photo{
+    aspect-ratio: 4/3; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4rem;
+    background:repeating-linear-gradient(135deg, #e2d5b8, #e2d5b8 10px, #ded0af 10px, #ded0af 20px);
+    border:2px dashed rgba(23,18,32,0.35);
+    font-size:2rem; color:var(--marker); position:relative;
+  }
+  .memory-photo .placeholder-icon{ opacity:0.55; }
+  .memory-photo .placeholder-label{ font-size:0.68rem; font-family:'Space Grotesk'; color:var(--marker); opacity:0.65; letter-spacing:0.01em; padding:0 0.6rem; text-align:center; }
+  .memory-photo .placeholder-label code{ background:rgba(23,18,32,0.08); padding:0.1rem 0.35rem; }
+  .memory-photo img{ width:100%; height:100%; object-fit:cover; display:none; position:absolute; inset:0; }
+  .memory-body{ padding:1rem 0.3rem 0; }
+  .memory-body h3{ margin:0 0 0.3rem; font-size:1.1rem; font-family:'Permanent Marker', cursive; font-weight:400; color:var(--marker); }
+  .memory-body p{ margin:0; color:#3a3346; line-height:1.5; font-size:0.9rem; }
+
+  .note-cluster{ display:flex; flex-wrap:wrap; justify-content:center; gap:1.2rem; margin-top:3rem; max-width:640px; }
+  .sticky-note{
+    width:150px; padding:1.1rem 1rem; text-align:left; color:var(--marker);
+    box-shadow:0 10px 22px rgba(0,0,0,0.3);
+    opacity:0; transform:translateY(20px); transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .sticky-note.in{ opacity:1; transform:translateY(0); }
+  .sticky-note:nth-child(1){ background:var(--paper); transform:rotate(-3deg); }
+  .sticky-note.in:nth-child(1){ transform:rotate(-3deg); }
+  .sticky-note:nth-child(2){ background:var(--paper-pink); transform:rotate(2deg); }
+  .sticky-note.in:nth-child(2){ transform:rotate(2deg); }
+  .sticky-note:nth-child(3){ background:var(--paper-blue); transform:rotate(-1.5deg); }
+  .sticky-note.in:nth-child(3){ transform:rotate(-1.5deg); }
+  .sticky-note .label{ font-family:'Permanent Marker', cursive; font-size:0.95rem; margin-bottom:0.4rem; display:block; }
+  .sticky-note .stars{ font-size:1rem; letter-spacing:0.1em; color:var(--gold); text-shadow:0 1px 0 rgba(23,18,32,0.4); }
+
+  /* QUIZ */
+  .quiz-card{
+    background:var(--paper); color:var(--marker); max-width:520px; width:100%;
+    border:2px solid var(--marker); box-shadow:8px 8px 0 var(--gold);
+    padding:2rem 1.7rem; text-align:left; position:relative;
+  }
+  .quiz-progress{ display:flex; gap:0.4rem; margin-bottom:1.5rem; }
+  .quiz-progress span{ flex:1; height:6px; background:rgba(23,18,32,0.15); }
+  .quiz-progress span.done{ background:var(--pink); }
+  .quiz-question{ font-family:'Permanent Marker', cursive; font-size:1.15rem; margin-bottom:1.2rem; line-height:1.4; }
+  .quiz-options{ display:flex; flex-direction:column; gap:0.7rem; }
+  .quiz-option{
+    display:flex; align-items:center; gap:0.9rem; background:#fbf5e6; border:2px solid var(--marker);
+    padding:0.65rem 0.9rem; cursor:pointer; font-family:'Space Grotesk'; font-size:0.92rem; text-align:left;
+    transition:transform 0.15s ease, box-shadow 0.15s ease; box-shadow:3px 3px 0 var(--marker); width:100%;
+  }
+  .quiz-option:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--marker); }
+  .quiz-option:active{ transform:translate(1px,1px); box-shadow:1px 1px 0 var(--marker); }
+  .quiz-option img{ width:44px; height:44px; object-fit:cover; border:1px solid var(--marker); flex-shrink:0; }
+  .quiz-option .emoji{ font-size:1.4rem; flex-shrink:0; width:44px; text-align:center; }
+  .quiz-result{ text-align:center; }
+  .quiz-result-title{ font-size:1.7rem; color:var(--pink); margin:0.3rem 0 0.8rem; }
+  .quiz-result p{ line-height:1.6; font-size:0.98rem; margin:0 0 0.3rem; }
+  .quiz-restart{ margin-top:1.4rem; }
+
+  /* FINALE — tap to open card */
+  #finale{ padding-top:4rem; padding-bottom:5rem; }
+  #finale #finaleHint{ margin-bottom:1.6rem; opacity:0.75; }
+  .card-scene{ perspective:1600px; width:300px; max-width:84vw; height:400px; margin:0 auto; }
+  .card-flip{
+    position:relative; width:100%; height:100%; cursor:pointer;
+    transform-style:preserve-3d; transition:transform 0.9s cubic-bezier(.22,1,.36,1);
+  }
+  .card-flip.open{ transform:rotateY(180deg); }
+  .card-face{
+    position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border:2px solid var(--marker); box-shadow:8px 8px 0 var(--blue);
+    padding:2rem 1.6rem; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:0.5rem; background:var(--paper); color:var(--marker);
+  }
+  .card-back{ transform:rotateY(180deg); box-shadow:8px 8px 0 var(--pink); }
+  .card-face .tape{ top:-14px; left:50%; margin-left:-32px; transform:rotate(-4deg); z-index:2; }
+  .card-cat{ margin-bottom:0.2rem; }
+  .card-front-title{ font-size:2rem; line-height:0.95; }
+  .card-front-name{ font-size:2.1rem; margin-top:0.4rem; color:var(--pink); }
+  .card-tap{ margin-top:1.5rem; font-size:0.8rem; opacity:0.65; animation:pulseTap 2s ease-in-out infinite; }
+  @keyframes pulseTap{ 0%,100%{opacity:0.4;} 50%{opacity:0.85;} }
+  .card-back p{ line-height:1.65; font-size:1rem; margin:0; }
+  .card-back .signature{ margin-top:1.3rem; font-family:'Permanent Marker', cursive; font-size:1rem; color:var(--blue); }
+
+  #confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:50; }
+
+  /* GAME */
+  .game-wrap{ position:relative; max-width:460px; width:100%; margin:0 auto; }
+  .game-hud{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 0.2rem 0.7rem; font-family:'Space Grotesk'; font-size:0.95rem; color:var(--ink-dim);
+  }
+  .game-hud strong{ color:var(--gold); font-family:'Permanent Marker', cursive; font-weight:400; }
+  #gameCanvas{
+    width:100%; height:auto; aspect-ratio:480/560; display:block;
+    background:linear-gradient(180deg, var(--bg2), var(--bg3));
+    border:3px solid var(--marker); box-shadow:8px 8px 0 var(--gold); touch-action:none;
+  }
+  .game-overlay{
+    position:absolute; inset:0; background:rgba(21,15,38,0.95);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:2rem; gap:1.2rem;
+  }
+  .game-overlay p{ color:var(--ink-dim); max-width:22rem; line-height:1.55; margin:0; font-size:0.95rem; }
+  .game-overlay.hidden{ display:none; }
+
+  footer{ text-align:center; color:var(--ink-dim); opacity:0.5; font-size:0.75rem; padding:2rem 1rem; font-family:'Permanent Marker', cursive; }
+</style>
+</head>
+<body>
+
+<div class="bg-wash"></div>
+<div class="grain"></div>
+<canvas id="confetti-canvas"></canvas>
+
+<!-- HERO -->
+<section id="hero">
+  <h1 class="poster">HAPPY 25TH<span class="marker name">Hena</span></h1>
+  <a href="#game" class="scroll-cta">play the game →</a>
+  <div class="bounce">↓</div>
+</section>
+
+<!-- GAME -->
+<section id="game">
+  <div class="tag-note">you're a tuxedo cat 🐈‍⬛</div>
+  <h2 class="poster">catch the vibes</h2>
+  <p class="section-sub">Catch the good stuff, dodge the deadlines. Arrow keys, drag, or mouse.</p>
+
+  <div class="game-wrap">
+    <div class="game-hud">
+      <span>Score: <strong id="gameScore">0</strong></span>
+      <span id="gameLives">❤️❤️❤️</span>
+    </div>
+    <canvas id="gameCanvas" width="480" height="560" aria-label="Catch the vibes game, move the tuxedo cat to catch falling items"></canvas>
+    <div class="game-overlay" id="gameOverlay">
+      <p id="gameOverlayText">☕📖🧥🎵🐰 good, 📄 bad. Three lives.</p>
+      <button class="sticker-btn" id="gameStartBtn">play</button>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories">
+  <h2 class="poster">a few reasons we love you</h2>
+
+  <div class="memory-grid" id="memoryGrid">
+    <div class="memory-card">
+      <div class="tape"></div>
+      <div class="memory-photo">
+        <img src="assets/bunbun.jpg" alt="BunBun the backyard bunny" id="photo-bunbun">
+        <span class="placeholder-icon">🐇</span>
+        <span class="placeholder-label">add photo as <code>assets/bunbun.jpg</code></span>
+      </div>
+      <div class="memory-body">
+        <h3>BunBun</h3>
+        <p>The backyard bunny. No lease, no job, just vibes.</p>
+      </div>
+    </div>
+    <div class="memory-card">
+      <div class="tape"></div>
+      <div class="memory-photo">
+        <img src="assets/bedtime.jpg" alt="Giggling in bed with our youngest sister" id="photo-bedtime">
+        <span class="placeholder-icon">🛏️</span>
+        <span class="placeholder-label">add photo as <code>assets/bedtime.jpg</code></span>
+      </div>
+      <div class="memory-body">
+        <h3>3am, no reason</h3>
+        <p>Three of us, one bed, laughing way too loud.</p>
+      </div>
+    </div>
+    <div class="memory-card">
+      <div class="tape"></div>
+      <div class="memory-photo">
+        <img src="assets/together.jpg" alt="You and your sisters" id="photo-together">
+        <span class="placeholder-icon">📚</span>
+        <span class="placeholder-label">add photo as <code>assets/together.jpg</code></span>
+      </div>
+      <div class="memory-body">
+        <h3>Just, generally, you</h3>
+        <p>PhD, Percy Jackson, thrifted fits, Goosy. All of it.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-cluster" id="noteCluster">
+    <div class="sticky-note"><span class="label">Chaos</span><span class="stars">★★★★★</span></div>
+    <div class="sticky-note"><span class="label">Cuddles</span><span class="stars">★★★★★</span></div>
+    <div class="sticky-note"><span class="label">Love</span><span class="stars">★★★★★</span></div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="tag-note">a very scientific test</div>
+  <h2 class="poster">what kind of Goosy are you?</h2>
+  <p class="section-sub">Answer honestly. Goosy is watching from the windowsill either way.</p>
+
+  <div class="quiz-card" id="quizCard">
+    <div class="quiz-progress" id="quizProgress"></div>
+    <div id="quizBody"></div>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section id="finale">
+  <p class="section-sub" id="finaleHint">tap the card</p>
+  <div class="card-scene">
+    <div class="card-flip" id="cardFlip" role="button" tabindex="0" aria-label="Open birthday card">
+      <div class="card-face card-front">
+        <div class="tape"></div>
+        <div class="card-cat" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="80" height="80">
+            <polygon points="18,34 32,6 46,34" fill="#171220"/>
+            <polygon points="74,34 88,6 102,34" fill="#171220"/>
+            <rect x="14" y="30" width="92" height="70" rx="30" fill="#171220"/>
+            <ellipse cx="60" cy="72" rx="30" ry="26" fill="#efe6d2"/>
+            <circle cx="44" cy="60" r="4.2" fill="#171220"/>
+            <circle cx="76" cy="60" r="4.2" fill="#171220"/>
+            <circle cx="60" cy="72" r="3.4" fill="#ff4fa3"/>
+          </svg>
+        </div>
+        <div class="card-front-title poster">HAPPY<br>25TH</div>
+        <div class="card-front-name marker">Hena</div>
+        <div class="card-tap">tap to open ✨</div>
+      </div>
+      <div class="card-face card-back">
+        <div class="tape"></div>
+        <p>Here's to 25. Go celebrate — and give Goosy a little extra love from all of us.</p>
+        <div class="signature">— your very proud sibling</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>made with love (and Goosy hair) for Hena's 25th</footer>
+
+<script>
+// scroll reveal
+const revealEls = document.querySelectorAll('.memory-card, .sticky-note');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach((e, i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=> e.target.classList.add('in'), i*90);
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:0.25});
+revealEls.forEach(el=> io.observe(el));
+
+// swap in real photos if present
+['bunbun','bedtime','together'].forEach(id=>{
+  const img = document.getElementById('photo-'+id);
+  img.onload = ()=>{
+    img.style.display='block';
+    img.parentElement.querySelectorAll('.placeholder-icon, .placeholder-label').forEach(el=> el.style.display='none');
+  };
+});
+
+// confetti
+const canvas = document.getElementById('confetti-canvas');
+const ctx = canvas.getContext('2d');
+function resizeCanvas(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const colors = ['#5b79ff','#ff4fa3','#ffc93c','#f3ecdf'];
+let particles = [];
+function burstConfetti(){
+  particles = [];
+  for(let i=0;i<140;i++){
+    particles.push({
+      x: canvas.width/2, y: canvas.height*0.4,
+      vx: (Math.random()-0.5)*14,
+      vy: (Math.random()-1.4)*14,
+      size: 5+Math.random()*5,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      rot: Math.random()*360,
+      vr: (Math.random()-0.5)*10,
+      life: 0
+    });
+  }
+  requestAnimationFrame(animateConfetti);
+}
+function animateConfetti(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  let alive = false;
+  particles.forEach(p=>{
+    p.vy += 0.28;
+    p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life++;
+    if(p.life < 220){ alive = true; }
+    ctx.save();
+    ctx.translate(p.x,p.y);
+    ctx.rotate(p.rot*Math.PI/180);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = Math.max(0, 1 - p.life/220);
+    ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*0.6);
+    ctx.restore();
+  });
+  if(alive){ requestAnimationFrame(animateConfetti); }
+  else{ ctx.clearRect(0,0,canvas.width,canvas.height); }
+}
+const cardFlip = document.getElementById('cardFlip');
+const finaleHint = document.getElementById('finaleHint');
+let cardOpened = false;
+function openCard(){
+  if(cardOpened) return;
+  cardOpened = true;
+  cardFlip.classList.add('open');
+  finaleHint.style.opacity = '0';
+  setTimeout(burstConfetti, 500);
+}
+cardFlip.addEventListener('click', openCard);
+cardFlip.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openCard(); }
+});
+
+// ---- what kind of goosy are you: quiz ----
+(function(){
+  const quizQuestions = [
+    {
+      q: "It's 2am. What's happening right now?",
+      options: [
+        {text:"Sitting directly on the nearest warm laptop", type:"loaf", emoji:"💻"},
+        {text:"Sprinting across the apartment for no reason", type:"feral", emoji:"⚡"},
+        {text:"Staring at the door like something's wrong", type:"judge", emoji:"👁️"},
+        {text:"Climbing into the nearest lap, allergies be damned", type:"lap", emoji:"🤧"},
+      ]
+    },
+    {
+      q: "Someone tries to move you off the couch.",
+      options: [
+        {text:"Reappear in the exact same spot in four minutes", type:"judge", emoji:"🐾"},
+        {text:"Immediate zoomies, no notes", type:"feral", emoji:"💨"},
+        {text:"Go dead weight. Do not move.", type:"loaf", emoji:"🍞"},
+        {text:"Climb right back into their lap", type:"lap", emoji:"❤️"},
+      ]
+    },
+    {
+      q: "Pick a 2am snack.",
+      options: [
+        {text:"Coffee. Obviously.", type:"loaf", emoji:"☕"},
+        {text:"Whatever's on the counter, unsupervised", type:"feral", emoji:"🧥"},
+        {text:"Nothing. You're too busy judging everyone else's choices.", type:"judge", emoji:"🍽️"},
+        {text:"Anything, as long as it's shared from a lap", type:"lap", emoji:"🥄"},
+      ]
+    },
+    {
+      q: "Pick a memory.",
+      options: [
+        {text:"BunBun showing up in the backyard, uninvited", type:"feral", image:"assets/bunbun.jpg", fallback:"🐇"},
+        {text:"Giggling in bed at 3am with your sisters", type:"lap", image:"assets/bedtime.jpg", fallback:"🛏️"},
+        {text:"A quiet, ordinary day together", type:"judge", image:"assets/together.jpg", fallback:"📚"},
+        {text:"Doom-scrolling Smosh instead of sleeping", type:"loaf", emoji:"📱"},
+      ]
+    },
+    {
+      q: "Pick your closing-track energy.",
+      options: [
+        {text:"\"I'm Not Okay\" dramatics", type:"feral", emoji:"🎸"},
+        {text:"Effortlessly iconic, judging everyone in the room", type:"judge", emoji:"💅"},
+        {text:"Soft, a little embarrassing, staying close", type:"lap", emoji:"🎀"},
+        {text:"Doesn't move for anyone. Main character anyway.", type:"loaf", emoji:"🛋️"},
+      ]
+    }
+  ];
+
+  const results = {
+    loaf: {
+      title:"Loaf Goosy",
+      desc:"You've fully melted into whatever surface is warmest — usually a laptop mid-Zoom call — and you are not moving for anyone. PhD deadline? Not your problem right now. You are a loaf. A very cute, very immovable loaf."
+    },
+    feral: {
+      title:"Feral 3am Goosy",
+      desc:"Zero warning, all chaos. One second you're asleep, the next you're sprinting full speed through the apartment at 3am for reasons only you understand. Everyone else just has to live with it, same as Goosy's roommates."
+    },
+    judge: {
+      title:"Judgmental Goosy",
+      desc:"You watch. You wait. You say nothing. And yet somehow everyone in the room knows exactly what you think of their life choices. Classic stubborn Taurus energy, allergic sister included."
+    },
+    lap: {
+      title:"Lap Goosy",
+      desc:"Allergies be damned, you are getting in that lap. Ten minutes, twenty minutes, doesn't matter — you've chosen your person and you are staying exactly where you are, sneezing be damned."
+    }
+  };
+
+  let qIndex = 0;
+  let tally = {loaf:0, feral:0, judge:0, lap:0};
+
+  const progressEl = document.getElementById('quizProgress');
+  const bodyEl = document.getElementById('quizBody');
+
+  function renderProgress(){
+    let html = '';
+    for(let i=0;i<quizQuestions.length;i++){
+      html += `<span class="${i < qIndex ? 'done' : ''}"></span>`;
+    }
+    progressEl.innerHTML = html;
+  }
+
+  function renderQuestion(){
+    renderProgress();
+    if(qIndex >= quizQuestions.length){ renderResult(); return; }
+    const q = quizQuestions[qIndex];
+    const optsHtml = q.options.map(o=>{
+      const visual = o.image
+        ? `<img src="${o.image}" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"><span class="emoji" style="display:none;">${o.fallback}</span>`
+        : `<span class="emoji">${o.emoji}</span>`;
+      return `<button class="quiz-option" data-type="${o.type}">${visual}<span>${o.text}</span></button>`;
+    }).join('');
+    bodyEl.innerHTML = `<div class="quiz-question">${q.q}</div><div class="quiz-options">${optsHtml}</div>`;
+    bodyEl.querySelectorAll('.quiz-option').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        tally[btn.dataset.type]++;
+        qIndex++;
+        renderQuestion();
+      });
+    });
+  }
+
+  function renderResult(){
+    renderProgress();
+    const top = Object.keys(tally).reduce((a,b)=> tally[a] >= tally[b] ? a : b);
+    const r = results[top];
+    bodyEl.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-result-title marker">${r.title}</div>
+        <p>${r.desc}</p>
+        <button class="sticker-btn quiz-restart" id="quizRestart">take it again</button>
+      </div>`;
+    document.getElementById('quizRestart').addEventListener('click', ()=>{
+      qIndex = 0;
+      tally = {loaf:0, feral:0, judge:0, lap:0};
+      renderQuestion();
+    });
+  }
+
+  renderQuestion();
+})();
+
+// ---- catch the vibes: tuxedo cat game ----
+(function(){
+  const canvas = document.getElementById('gameCanvas');
+  const gctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const catW = 92, catH = 58;
+  const catY = H - catH - 14;
+  let catX = W/2;
+
+  const overlay = document.getElementById('gameOverlay');
+  const overlayText = document.getElementById('gameOverlayText');
+  const startBtn = document.getElementById('gameStartBtn');
+  const scoreEl = document.getElementById('gameScore');
+  const livesEl = document.getElementById('gameLives');
+
+  const goodEmojis = ['☕','📖','🧥','💻','🎵','🐰'];
+  const badEmoji = '📄';
+
+  let items = [];
+  let score = 0, lives = 3;
+  let running = false;
+  let lastTime = 0, spawnTimer = 0;
+  const keys = {};
+
+  function roundRect(ctx,x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.arcTo(x+w,y,x+w,y+h,r);
+    ctx.arcTo(x+w,y+h,x,y+h,r);
+    ctx.arcTo(x,y+h,x,y,r);
+    ctx.arcTo(x,y,x+w,y,r);
+    ctx.closePath();
+  }
+
+  function drawCat(ctx,x,y,w,h){
+    ctx.fillStyle = '#171220';
+    ctx.beginPath(); ctx.moveTo(x-w/2+6,y+8); ctx.lineTo(x-w/2+20,y-14); ctx.lineTo(x-w/2+34,y+8); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x+w/2-6,y+8); ctx.lineTo(x+w/2-20,y-14); ctx.lineTo(x+w/2-34,y+8); ctx.closePath(); ctx.fill();
+    roundRect(ctx, x-w/2, y, w, h, 18); ctx.fill();
+    ctx.fillStyle = '#efe6d2';
+    roundRect(ctx, x-w/2+16, y+h*0.32, w-32, h*0.68, 14); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(x-w/2+20, y+h-4, 13,9,0,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(x+w/2-20, y+h-4, 13,9,0,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#171220';
+    ctx.beginPath(); ctx.arc(x-15, y+h*0.3, 3.2, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x+15, y+h*0.3, 3.2, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#ff4fa3';
+    ctx.beginPath(); ctx.arc(x, y+h*0.42, 3, 0, Math.PI*2); ctx.fill();
+  }
+
+  function updateHUD(){
+    scoreEl.textContent = score;
+    livesEl.textContent = '❤️'.repeat(Math.max(lives,0));
+  }
+
+  function resetGame(){
+    score = 0; lives = 3; items = []; spawnTimer = 0; catX = W/2;
+    updateHUD();
+  }
+
+  function spawnItem(){
+    const isBad = Math.random() < 0.22;
+    const emoji = isBad ? badEmoji : goodEmojis[Math.floor(Math.random()*goodEmojis.length)];
+    items.push({
+      x: 26 + Math.random()*(W-52),
+      y: -30,
+      speed: 2.1 + Math.random()*1.3 + Math.min(score*0.012, 2.5),
+      emoji, bad: isBad, size: 32
+    });
+  }
+
+  function endGame(){
+    running = false;
+    const msg = score >= 150
+      ? "Incredible. Nine lives, apparently."
+      : score >= 80
+      ? "Solid run. Goosy approves."
+      : "Not bad for a cat with allergies to everyone's expectations.";
+    overlayText.textContent = `Game over — ${score} points. ${msg}`;
+    startBtn.textContent = 'play again';
+    overlay.classList.remove('hidden');
+    if(score >= 150){ burstConfetti(); }
+  }
+
+  function loop(ts){
+    if(!running) return;
+    if(!lastTime) lastTime = ts;
+    const dt = ts - lastTime;
+    lastTime = ts;
+    spawnTimer += dt;
+
+    if(keys.left) catX = Math.max(catW/2, catX - 6.5);
+    if(keys.right) catX = Math.min(W - catW/2, catX + 6.5);
+
+    const interval = Math.max(380, 900 - score*3);
+    if(spawnTimer > interval){ spawnTimer = 0; spawnItem(); }
+
+    gctx.clearRect(0,0,W,H);
+
+    items.forEach(it => { it.y += it.speed; });
+
+    items = items.filter(it => {
+      const caught = it.y > catY - 6 && it.y < catY + catH && Math.abs(it.x - catX) < catW/2 + 14;
+      if(caught){
+        if(it.bad){ lives -= 1; } else { score += 10; }
+        updateHUD();
+        if(lives <= 0){ endGame(); }
+        return false;
+      }
+      return it.y < H + 30;
+    });
+
+    items.forEach(it => {
+      gctx.font = it.size + 'px sans-serif';
+      gctx.textAlign = 'center';
+      gctx.textBaseline = 'middle';
+      gctx.fillText(it.emoji, it.x, it.y);
+    });
+
+    drawCat(gctx, catX, catY, catW, catH);
+
+    if(running) requestAnimationFrame(loop);
+  }
+
+  function setCatFromClientX(clientX){
+    const rect = canvas.getBoundingClientRect();
+    const scale = W / rect.width;
+    const x = (clientX - rect.left) * scale;
+    catX = Math.max(catW/2, Math.min(W - catW/2, x));
+  }
+
+  canvas.addEventListener('mousemove', e => setCatFromClientX(e.clientX));
+  canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    setCatFromClientX(e.touches[0].clientX);
+  }, {passive:false});
+
+  window.addEventListener('keydown', e => {
+    if(e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') keys.left = true;
+    if(e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = true;
+  });
+  window.addEventListener('keyup', e => {
+    if(e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') keys.left = false;
+    if(e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = false;
+  });
+
+  startBtn.addEventListener('click', () => {
+    resetGame();
+    overlay.classList.add('hidden');
+    running = true;
+    lastTime = 0;
+    requestAnimationFrame(loop);
+  });
+
+  drawCat(gctx, catX, catY, catW, catH);
+})();
+</script>
+</body>
+</html>
