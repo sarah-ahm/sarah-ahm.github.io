@@ -184,13 +184,14 @@
   .memory-card{
     background: var(--paper); 
     color: var(--marker); 
-    width: 100%;       /* Fluid width */
-    max-width: 300px;  /* Keeps cards from getting too large on desktop */
+    flex: 0 0 280px !important; 
+    width: 280px !important;    max-width: 300px;  /* Keeps cards from getting too large on desktop */
     padding: 0.9rem;
     border: 1px solid rgba(23,18,32,0.2); 
     box-shadow: 0 14px 30px rgba(0,0,0,0.35);
     transition: opacity 0.6s ease, transform 0.6s ease;
     position: relative;
+    margin: 0.5rem;
   }
   .memory-card:nth-child(1){ --r:-3deg; }
   .memory-card:nth-child(2){ --r:2deg; }
@@ -199,7 +200,8 @@
   .memory-card:hover{ transform:translateY(-4px) rotate(0deg); }
   .memory-card .tape{ top:-12px; left:50%; margin-left:-32px; transform:rotate(-3deg); }
   .memory-photo{
-    width: 100%; 
+    width: 100% !important; 
+    height: auto !important;
     overflow: hidden; /* Keeps image from overflowing the card */
     display: flex;
     align-items: center;
