@@ -74,6 +74,11 @@
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center;
     position:relative;
+    z-index:2;
+    pointer-events:none;
+  }
+  section > *{
+    pointer-events:auto;
   }
 
   .tape{
@@ -89,15 +94,37 @@
   }
 
   /* HERO */
-  #hero h1{
-    font-size:clamp(2.8rem, 12vw, 6.4rem);
-    line-height:0.95; margin:0; color:var(--ink);
-    text-shadow: 4px 4px 0 var(--pink), 8px 8px 0 var(--blue);
-    transform:rotate(-1.5deg);
+  #hero .hero-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0;
+    transform: rotate(-1.5deg);
   }
-  #hero .name{
-    display:block; margin-top:0.6rem; font-size:clamp(2rem, 9vw, 4.2rem);
-    color:var(--gold); transform:rotate(1.5deg);
+  .mcr-main {
+    font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace;
+    font-weight: normal;
+    text-transform: none;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    text-shadow: 
+      3px 3px 0px #000000, 
+      -1px -1px 0px #000000, 
+      1px -1px 0px #000000, 
+      -1px 1px 0px #000000, 
+      0 0 10px rgba(255, 79, 163, 0.4);
+  }
+  #hero .mcr-main {
+    font-size: clamp(2.2rem, 9vw, 4.2rem);
+    display: block;
+  }
+  .card-face .mcr-main {
+    color: var(--marker);
+    font-size: 1.6rem;
+    text-shadow: none;
+    margin-bottom: 0.2rem;
   }
   .scroll-cta{
     display:inline-flex; align-items:center; gap:0.5rem; margin-top:3rem;
@@ -151,7 +178,7 @@
   .memory-photo .placeholder-icon{ opacity:0.55; }
   .memory-photo .placeholder-label{ font-size:0.68rem; font-family:'Space Grotesk'; color:var(--marker); opacity:0.65; letter-spacing:0.01em; padding:0 0.6rem; text-align:center; }
   .memory-photo .placeholder-label code{ background:rgba(23,18,32,0.08); padding:0.1rem 0.35rem; }
-  .memory-photo img{ width:100%; height:100%; object-fit:cover; display:none; position:absolute; inset:0; }
+  .memory-photo img{ width:100%; height:100%; object-fit:contain; background:transparent; display:none; position:absolute; inset:0; }
   .memory-body{ padding:1rem 0.3rem 0; }
   .memory-body h3{ margin:0 0 0.3rem; font-size:1.1rem; font-family:'Permanent Marker', cursive; font-weight:400; color:var(--marker); }
   .memory-body p{ margin:0; color:#3a3346; line-height:1.5; font-size:0.9rem; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; }
@@ -190,12 +217,152 @@
   }
   .quiz-option:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--marker); }
   .quiz-option:active{ transform:translate(1px,1px); box-shadow:1px 1px 0 var(--marker); }
-  .quiz-option img{ width:44px; height:44px; object-fit:cover; border:1px solid var(--marker); flex-shrink:0; }
+  .quiz-option img{ width:44px; height:44px; object-fit:contain; background:#fbf5e6; border:1px solid var(--marker); flex-shrink:0; }
   .quiz-option .emoji{ font-size:1.4rem; flex-shrink:0; width:44px; text-align:center; }
   .quiz-result{ text-align:center; }
   .quiz-result-title{ font-size:1.7rem; color:var(--pink); margin:0.3rem 0 0.8rem; }
   .quiz-result p{ line-height:1.6; font-size:0.98rem; margin:0 0 0.3rem; }
   .quiz-restart{ margin-top:1.4rem; }
+
+  /* GOOSE STAT CARD */
+  .goose-stat-card-wrap {
+    margin: 1.8rem auto;
+    max-width: 440px;
+    width: 100%;
+    transform: rotate(-0.5deg);
+  }
+  .goose-stat-card {
+    background: var(--paper);
+    border: 3px solid var(--marker);
+    box-shadow: 10px 10px 0 var(--gold);
+    border-radius: 12px;
+    overflow: hidden;
+    color: var(--marker);
+    position: relative;
+    text-align: left;
+    transition: transform 0.3s ease;
+  }
+  .goose-stat-card:hover {
+    transform: translateY(-4px) rotate(0.5deg);
+  }
+  .goose-stat-card-header {
+    background: rgba(23,18,32,0.05);
+    border-bottom: 2px solid var(--marker);
+    padding: 1rem;
+    text-align: center;
+  }
+  .goose-stat-card-photo-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 1.2rem 1rem;
+  }
+  .goose-stat-card-polaroid {
+    background: #ffffff;
+    border: 2px solid var(--marker);
+    padding: 0.6rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: rotate(1.5deg);
+    max-width: 210px;
+    width: 100%;
+    text-align: center;
+  }
+  .goose-stat-card-image-box {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #fbf5e6;
+    border: 1px solid var(--marker);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .goose-stat-card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .goose-stat-card-polaroid-label {
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace;
+    opacity: 0.8;
+  }
+  .goose-stat-card-stats {
+    padding: 0 1.5rem 1.5rem;
+  }
+  .goose-stat-card-stats-title {
+    font-size: 0.95rem;
+    color: var(--blue);
+    border-bottom: 1px solid var(--marker);
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.8rem;
+  }
+  .goose-stat-bar-row {
+    margin-bottom: 0.8rem;
+  }
+  .goose-stat-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .goose-stat-bar-outer {
+    width: 100%;
+    height: 10px;
+    background: rgba(23,18,32,0.1);
+    border: 2px solid var(--marker);
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+  .goose-stat-bar-inner {
+    height: 100%;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .goose-stat-card-footer {
+    border-top: 1px solid var(--marker);
+    padding-top: 0.8rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .goose-stat-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .goose-stat-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    font-family: 'Space Grotesk', sans-serif;
+    border: 2px solid var(--marker);
+    cursor: pointer;
+    background: #fbf5e6;
+    color: var(--marker);
+    box-shadow: 3px 3px 0 var(--marker);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .goose-stat-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--marker);
+  }
+  .goose-stat-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--marker);
+  }
+  .goose-stat-btn.primary {
+    background: var(--pink);
+    color: #ffffff;
+    box-shadow: 3px 3px 0 var(--marker);
+  }
+  .goose-stat-btn.primary:hover {
+    box-shadow: 5px 5px 0 var(--marker);
+  }
 
   /* FINALE — tap to open card */
   #finale{ padding-top:4rem; padding-bottom:5rem; }
@@ -215,7 +382,12 @@
   .card-back{ transform:rotateY(180deg); box-shadow:8px 8px 0 var(--pink); }
   .card-face .tape{ top:-14px; left:50%; margin-left:-32px; transform:rotate(-4deg); z-index:2; }
   .card-cat{ margin-bottom:0.2rem; }
-  .card-front-title{ font-size:2rem; line-height:0.95; }
+  .card-front-title{
+    font-size:1.8rem;
+    line-height:1.1;
+    font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace;
+    font-weight: normal;
+  }
   .card-front-name{ font-size:2.1rem; margin-top:0.4rem; color:var(--pink); }
   .card-tap{ margin-top:1.5rem; font-size:0.8rem; opacity:0.65; animation:pulseTap 2s ease-in-out infinite; }
   @keyframes pulseTap{ 0%,100%{opacity:0.4;} 50%{opacity:0.85;} }
@@ -225,7 +397,7 @@
   #confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:50; }
 
   /* GAME */
-  .game-wrap{ position:relative; max-width:460px; width:100%; margin:0 auto; }
+  .game-wrap{ position:relative; max-width:460px; width:100%; margin:0 auto; z-index:10; }
   .game-hud{
     display:flex; justify-content:space-between; align-items:center;
     padding:0 0.2rem 0.7rem; font-family:'Space Grotesk'; font-size:0.95rem; color:var(--ink-dim);
@@ -276,11 +448,9 @@
     box-shadow: 2px 2px 0 var(--marker);
   }
   .oiia-btn-icon {
-    width: 28px;
-    height: 28px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid var(--marker);
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
   }
   .oiia-overlay {
     position: fixed;
@@ -370,7 +540,7 @@
     height: 100%;
     object-fit: contain;
     border-radius: 0;
-    animation: oiia-spin 1.2s linear infinite;
+    animation: oiia-spin 0.8s linear infinite;
   }
   @keyframes oiia-spin {
     0% { transform: rotateY(0deg); }
@@ -422,6 +592,48 @@
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(-100%, 0, 0); }
   }
+
+  /* Goosy Rain system */
+  #goose-rain-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .falling-goose {
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center;
+    will-change: transform;
+  }
+  .falling-goose img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(4px 4px 0px var(--marker));
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .pop-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 96;
+    animation: particle-fade-fly 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  @keyframes particle-fade-fly {
+    0% { transform: translate(-50%, -50%) translate(0, 0) scale(1.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(0.1); opacity: 0; }
+  }
 </style>
 </head>
 <body>
@@ -432,7 +644,9 @@
 
 <!-- HERO -->
 <section id="hero">
-  <h1 class="poster">HAPPY BIRTHDAY<span class="marker name">Hena</span></h1>
+  <h1 class="hero-title">
+    <span class="mcr-main">Happy birthday Hena.</span>
+  </h1>
   <a href="#game" class="scroll-cta">play the game →</a>
   <div class="bounce">↓</div>
 </section>
@@ -441,7 +655,7 @@
 <section id="game">
   <div class="tag-note">you're Goosy 🐾</div>
   <h2 class="poster">catch the vibes</h2>
-  <p class="section-sub">Catch the good stuff, dodge the deadlines. Arrow keys, drag, or mouse.</p>
+  <p class="section-sub">Catch the good stuff, dodge the deadlines. Use arrow keys, mouse, or yo fingers.</p>
 
   <div class="game-wrap">
     <div class="game-hud">
@@ -449,9 +663,9 @@
       <span>High Score: <strong id="gameHighScore">0</strong></span>
       <span id="gameLives">❤️❤️❤️</span>
     </div>
-    <canvas id="gameCanvas" width="480" height="560" aria-label="Catch the vibes game, move the Goosy cat to catch falling items"></canvas>
+    <canvas id="gameCanvas" width="480" height="560" aria-label="Catch the vibes game, move the Goose to catch falling items"></canvas>
     <div class="game-overlay" id="gameOverlay">
-      <p id="gameOverlayText">☕📖🧥🎵🐰 good, 📄 bad. Three lives.</p>
+      <p id="gameOverlayText">☕📖🧥🎵🐰 good, 📄 bad. You have 3 lives. Use them wisely.</p>
       <button class="sticker-btn" id="gameStartBtn">play</button>
     </div>
   </div>
@@ -469,7 +683,7 @@
       </div>
       <div class="memory-body">
         <h3>BunBun</h3>
-        <p class="typewriter">She come, she go, nobody knows.</p>
+        <p class="typewriter">She come, she go, nobody know.</p>
       </div>
     </div>
     <div class="memory-card">
@@ -479,7 +693,7 @@
       </div>
       <div class="memory-body">
         <h3>Chonky</h3>
-        <p class="typewriter">A true potato.</p>
+        <p class="typewriter">The truest potato there ever was.</p>
       </div>
     </div>
     <div class="memory-card">
@@ -498,11 +712,6 @@
     <button class="sticker-btn" id="showMoreMemoriesBtn">see more memories 📸</button>
   </div>
 
-  <div class="note-cluster" id="noteCluster">
-    <div class="sticky-note"><span class="label">Chaos</span><span class="stars">★★★★★</span></div>
-    <div class="sticky-note"><span class="label">Cuddles</span><span class="stars">★★★★★</span></div>
-    <div class="sticky-note"><span class="label">Love</span><span class="stars">★★★★★</span></div>
-  </div>
 </section>
 
 <!-- QUIZ -->
@@ -524,16 +733,15 @@
     <div class="card-flip" id="cardFlip" role="button" tabindex="0" aria-label="Open birthday card">
       <div class="card-face card-front">
         <div class="tape"></div>
-        <div class="card-cat" aria-hidden="true" style="margin-bottom: 1rem;">
-          <img src="assets/goose-angry.png" alt="Goosy is angry" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid var(--marker); box-shadow: 4px 4px 0 var(--pink);">
+        <div class="card-cat" aria-hidden="true" style="margin-bottom: 1rem; width: 100%; display: flex; justify-content: center;">
+          <img src="assets/hanging_with_goose.jpg" alt="Goosy chillin" style="max-width: 160px; max-height: 140px; width: auto; height: auto; object-fit: contain; border-radius: 12px; border: 3px solid var(--marker); box-shadow: 4px 4px 0 var(--pink); background: #fbf5e6; padding: 4px;">
         </div>
-        <div class="card-front-title poster">HAPPY<br>BIRTHDAY</div>
-        <div class="card-front-name marker">Hena</div>
+        <div class="mcr-main">Happy birthday Hena.</div>
         <div class="card-tap">tap to open ✨</div>
       </div>
       <div class="card-face card-back">
         <div class="tape"></div>
-        <p>HAPPY BIRTHDAY LADY WE LOVETH YOU.</p>
+        <p>Happy birthday lady we loveth you.</p>
         <div class="signature">— YO FAM</div>
       </div>
     </div>
@@ -581,16 +789,17 @@ revealEls.forEach(el=> io.observe(el));
 
 // "See More Memories" dynamic loading
 const extraMemories = [
-  { src: 'assets/20230509_145047.jpg', title: 'Sisters & Sunshine ☀️', desc: 'Making every ordinary moment feel special.' },
-  { src: 'assets/bunbun.jpg', title: 'Backyard BunBun 🐇', desc: 'The garden legend making another guest appearance.' },
-  { src: 'assets/IMG-20230513-WA0024.jpg', title: 'Thrifts & Fits 🧥', desc: 'Effortlessly iconic, as always.' },
-  { src: 'assets/IMG_0009-303063315-O.jpg', title: 'Quiet times 📖', desc: 'Lost in another Percy Jackson adventure.' },
-  { src: 'assets/IMG_0010-303063431-O.jpg', title: 'Late night sessions ☕', desc: 'Sipping coffee and chatting till the sun comes up.' },
-  { src: 'assets/IMG_0094.JPG', title: 'Sisters forever 💖', desc: 'Through every chapter, always side by side.' },
-  { src: 'assets/IMG_0095.JPG', title: 'Double trouble 👯', desc: 'Sharing clothes, sharing laughs, sharing life.' },
-  { src: 'assets/Picture507+036-149454534-O.jpg', title: 'Golden hour ✨', desc: 'When the lighting is just as bright as your smile.' },
-  { src: 'assets/Screenshot_20220523-100555_Instagram.jpg', title: 'Instagram gold 📸', desc: 'Saving memories one story at a time.' },
-  { src: 'assets/Screenshot_20230423_144041_Instagram.jpg', title: 'Just Goosy things 🐈', desc: 'The absolute ruler of the windowsill.' }
+  { src: 'assets/together.jpg', title: 'Sisters Forever 💖', desc: 'Through every chapter, always side by side.' },
+  { src: 'assets/so_happy.jpg', title: 'Smiles & Sunshine ☀️', desc: 'Making every ordinary moment feel special.' },
+  { src: 'assets/dance.jpg', title: 'Dancing Hearts 💃', desc: 'Light on your feet, filling the room with joy.' },
+  { src: 'assets/ballet.JPG', title: 'Grace & Ballet 🩰', desc: 'Poised, elegant, and effortlessly beautiful.' },
+  { src: 'assets/cute_potato.jpg', title: 'Cute Potato Mode 🥔', desc: 'Max comfy, wrapped in the sweetest vibes.' },
+  { src: 'assets/coffee.jpg', title: 'Coffee & Chats ☕', desc: 'Sipping warm drinks and laughing till the sun comes up.' },
+  { src: 'assets/bear.JPG', title: 'Beary Cuddly 🧸', desc: 'The softest, most adorable moments together.' },
+  { src: 'assets/selfie.jpg', title: 'Camera Ready 📸', desc: 'Perfect frames of our favorite memories.' },
+  { src: 'assets/at_le_beach.jpg', title: 'Beach Day Out 🏖️', desc: 'Sandy paws, warm breezes, and sunny memories.' },
+  { src: 'assets/and_how.JPG', title: 'Absolutely Iconic ✨', desc: 'Unapologetically yourself, always.' },
+  { src: 'assets/aaah.jpg', title: 'Chaos Energy ⚡', desc: 'Goose screaming into the void! Love it.' }
 ];
 
 const showBtn = document.getElementById('showMoreMemoriesBtn');
@@ -711,12 +920,12 @@ cardFlip.addEventListener('keydown', (e)=>{
       ]
     },
     {
-      q: "You are staring at the wall, having childhood flashbacks. What are you remembering?",
+      q: "How do you react when a minor inconvenience occurs?",
       options: [
-        {text:"BunBun showing up in the backyard, uninvited", type:"feral", image:"assets/IMG_0301.JPG", fallback:"🐇"},
-        {text:"Giggling in bed at 3am with your sisters", type:"lap", image:"assets/20230509_153011.jpg", fallback:"🛏️"},
-        {text:"A quiet, ordinary day together", type:"judge", image:"assets/Grad+075-890457830-O.jpg", fallback:"📚"},
-        {text:"Doom-scrolling Smosh instead of sleeping", type:"loaf", emoji:"📱"},
+        {text:"Hiss and flap wings aggressively", type:"feral", emoji:"🦢"},
+        {text:"Stare intensely until they go away", type:"judge", emoji:"👁️"},
+        {text:"Turn into a warm, round loaf and ignore reality", type:"loaf", emoji:"🍞"},
+        {text:"Demand immediate head scratches and cuddles", type:"lap", emoji:"🤗"},
       ]
     },
     {
@@ -733,19 +942,31 @@ cardFlip.addEventListener('keydown', (e)=>{
   const results = {
     loaf: {
       title:"Loaf Goose",
-      desc:"You're fully melted into whatever surface is warmest and not moving for anyone or anything. Deadline? Not yo problem. You are loaf."
+      desc:"You're fully melted into whatever surface is warmest and not moving for anyone or anything. Deadline? Not yo problem. You are loaf.",
+      image: "assets/goose-yawn.png",
+      zodiacElement: "🛋️ RULING PLANET: THE WARM RADIATOR",
+      zodiacReading: "Under this sign, you possess an unshakeable inner peace. You do not chase opportunities; you let them find you while you lie perfectly still. Blessed with infinite patience (or just extreme reluctance to get up)."
     },
     feral: {
-      title:"Posessed Goose",
-      desc:"You're sprinting at full speed through the apartment for reasons only you understand. Posessed or just vibing, no one will ever know."
+      title:"Possessed Goose",
+      desc:"You're sprinting at full speed through the apartment for reasons only you understand. Possessed or just vibing, no one will ever know.",
+      image: "assets/goose-angry.png",
+      zodiacElement: "⚡ RULING PLANET: 3 AM ZOOMIES",
+      zodiacReading: "Driven by chaotic cosmic currents, your mind moves at lightspeed, usually right when you should be sleeping. Your path is unpredictable, incredibly fast, and guided by unseen spirits (or a random shadow on the wall)."
     },
     judge: {
       title:"Taurus Goose",
-      desc:"You judge silently while rocking them sweatpants. Sometimes you moo. Such is the life of a Taurus Goose."
+      desc:"You judge silently while rocking them sweatpants. Sometimes you moo. Such is the life of a Taurus Goose.",
+      image: "assets/goose-stare.png",
+      zodiacElement: "👁️ RULING PLANET: SILENT SIDE-EYE",
+      zodiacReading: "An earth sign through and through. You demand absolute comfort, premium snacks, and the right to observe everyone else's life choices with elegant, quiet skepticism. Unapologetically stubborn, undeniably iconic."
     },
     lap: {
       title:"Cuddle Goosy",
-      desc:"You are eepy and have found a wonderful heat source. What a potato."
+      desc:"You are eepy and have found a wonderful heat source. What a potato.",
+      image: "assets/cute_potato.jpg",
+      zodiacElement: "🎀 RULING PLANET: COZY FLEECE",
+      zodiacReading: "A gentle water-like sign representing warmth and emotional gravity. You have the rare power to make anyone around you immediately relaxed. You seek absolute comfort, soft fabrics, and a safe place to land."
     }
   };
 
@@ -787,17 +1008,108 @@ cardFlip.addEventListener('keydown', (e)=>{
     renderProgress();
     const top = Object.keys(tally).reduce((a,b)=> tally[a] >= tally[b] ? a : b);
     const r = results[top];
+    
+    const total = tally.loaf + tally.feral + tally.judge + tally.lap || 1;
+    const pctLoaf = Math.round((tally.loaf / total) * 100);
+    const pctFeral = Math.round((tally.feral / total) * 100);
+    const pctJudge = Math.round((tally.judge / total) * 100);
+    const pctLap = Math.round((tally.lap / total) * 100);
+
     bodyEl.innerHTML = `
       <div class="quiz-result">
-        <div class="quiz-result-title marker">${r.title}</div>
-        <p>${r.desc}</p>
+        <div class="goose-stat-card-wrap">
+          <div class="goose-stat-card">
+            <!-- Tape decoration -->
+            <div class="tape" style="top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg); z-index: 10;"></div>
+            
+            <div class="goose-stat-card-header" style="padding: 1.5rem 1.5rem 0.5rem; text-align: center;">
+              <h3 class="marker" style="font-size: 1.8rem; color: var(--pink); margin: 0; line-height: 1.2;">${r.title}</h3>
+              <p style="font-size: 0.92rem; line-height: 1.4; margin-top: 0.6rem; color: var(--marker); opacity: 0.85;">${r.desc}</p>
+            </div>
+            
+            <div class="goose-stat-card-photo-wrap" style="padding-top: 0.5rem; padding-bottom: 1rem;">
+              <div class="goose-stat-card-polaroid">
+                <div class="goose-stat-card-image-box">
+                  <img src="${r.image}" alt="${r.title}">
+                </div>
+              </div>
+            </div>
+            
+            <div class="goose-stat-card-stats">
+              <div class="goose-stat-bar-row">
+                <div class="goose-stat-bar-label">
+                  <span>🍞 Loafiness</span>
+                  <span>${pctLoaf}%</span>
+                </div>
+                <div class="goose-stat-bar-outer">
+                  <div class="goose-stat-bar-inner" id="barLoaf" style="width: 0%; background: #f59e0b;"></div>
+                </div>
+              </div>
+              
+              <div class="goose-stat-bar-row">
+                <div class="goose-stat-bar-label">
+                  <span>⚡ Feral Chaos</span>
+                  <span>${pctFeral}%</span>
+                </div>
+                <div class="goose-stat-bar-outer">
+                  <div class="goose-stat-bar-inner" id="barFeral" style="width: 0%; background: #ef4444;"></div>
+                </div>
+              </div>
+              
+              <div class="goose-stat-bar-row">
+                <div class="goose-stat-bar-label">
+                  <span>👁️ Taurus Judgment</span>
+                  <span>${pctJudge}%</span>
+                </div>
+                <div class="goose-stat-bar-outer">
+                  <div class="goose-stat-bar-inner" id="barJudge" style="width: 0%; background: #a855f7;"></div>
+                </div>
+              </div>
+              
+              <div class="goose-stat-bar-row">
+                <div class="goose-stat-bar-label">
+                  <span>🎀 Cozy Potato-ness</span>
+                  <span>${pctLap}%</span>
+                </div>
+                <div class="goose-stat-bar-outer">
+                  <div class="goose-stat-bar-inner" id="barLap" style="width: 0%; background: #ec4899;"></div>
+                </div>
+              </div>
+              
+              <div class="goose-stat-card-footer" style="border-top: 1px solid var(--marker); padding-top: 1rem; margin-top: 1.2rem;">
+                <div style="font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; font-size: 0.72rem; letter-spacing: 0.05em; font-weight: bold; opacity: 0.8; margin-bottom: 0.4rem; color: var(--blue); text-transform: uppercase;">
+                  ${r.zodiacElement}
+                </div>
+                <p style="font-size: 0.85rem; line-height: 1.5; font-style: italic; margin: 0; color: var(--marker); opacity: 0.95;">
+                  "${r.zodiacReading}"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <button class="sticker-btn quiz-restart" id="quizRestart">take it again</button>
       </div>`;
+
+    // Trigger sliding animations in the next event loop tick
+    setTimeout(() => {
+      const bLoaf = document.getElementById('barLoaf');
+      const bFeral = document.getElementById('barFeral');
+      const bJudge = document.getElementById('barJudge');
+      const bLap = document.getElementById('barLap');
+      if (bLoaf) bLoaf.style.width = pctLoaf + '%';
+      if (bFeral) bFeral.style.width = pctFeral + '%';
+      if (bJudge) bJudge.style.width = pctJudge + '%';
+      if (bLap) bLap.style.width = pctLap + '%';
+    }, 100);
+
+    // Restart button event
     document.getElementById('quizRestart').addEventListener('click', ()=>{
       qIndex = 0;
       tally = {loaf:0, feral:0, judge:0, lap:0};
       renderQuestion();
     });
+
   }
 
   renderQuestion();
@@ -889,7 +1201,12 @@ cardFlip.addEventListener('keydown', (e)=>{
 
   // Image loader for playing as Goosy
   const goosyImg = new Image();
-  goosyImg.src = 'assets/goose-angry.png';
+  goosyImg.src = 'assets/goose-stare-fullbody.png';
+  goosyImg.onload = () => {
+    gctx.fillStyle = '#1c1830';
+    gctx.fillRect(0, 0, W, H);
+    drawCat(gctx, catX, catY, catW, catH);
+  };
 
   function roundRect(ctx,x,y,w,h,r){
     ctx.beginPath();
@@ -903,21 +1220,14 @@ cardFlip.addEventListener('keydown', (e)=>{
 
   function drawCat(ctx,x,y,w,h){
     if (goosyImg.complete && goosyImg.naturalWidth !== 0) {
-      // Draw actual circular clipping path so Goosy's face fits beautifully on the canvas
       ctx.save();
-      ctx.beginPath();
-      ctx.arc(x, y + h/2, w/2, 0, Math.PI * 2);
-      ctx.closePath();
-      ctx.clip();
-      ctx.drawImage(goosyImg, x - w/2, y, w, h);
+      // Keep natural aspect ratio of the full body image
+      const aspect = goosyImg.naturalHeight / goosyImg.naturalWidth;
+      const drawW = w;
+      const drawH = w * aspect;
+      const drawY = y + h - drawH; // align bottom to the player base
+      ctx.drawImage(goosyImg, x - drawW/2, drawY, drawW, drawH);
       ctx.restore();
-      
-      // Draw border ring around clipping path
-      ctx.strokeStyle = '#171220';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.arc(x, y + h/2, w/2, 0, Math.PI * 2);
-      ctx.stroke();
     } else {
       // Fallback
       ctx.fillStyle = '#171220';
@@ -969,10 +1279,10 @@ cardFlip.addEventListener('keydown', (e)=>{
   function endGame(){
     running = false;
     const msg = score >= 150
-      ? "Incredible. Nine lives, apparently."
+      ? "Incredible. You are Goose-worthy."
       : score >= 80
-      ? "Solid run. Goosy approves."
-      : "Not bad for a cat with allergies to everyone's expectations.";
+      ? "Solid run. Goosy approves of you."
+      : "Not bad. Goosy considers you to be a decent hooman.";
     overlayText.textContent = `Game over — ${score} points. ${msg}`;
     startBtn.textContent = 'play again';
     overlay.classList.remove('hidden');
@@ -1000,7 +1310,9 @@ cardFlip.addEventListener('keydown', (e)=>{
     const interval = Math.max(380, 900 - score*3);
     if(spawnTimer > interval){ spawnTimer = 0; spawnItem(); }
 
-    gctx.clearRect(0,0,W,H);
+    // Fill a solid background to prevent see-through and block background layers
+    gctx.fillStyle = '#1c1830';
+    gctx.fillRect(0, 0, W, H);
 
     // Update and draw the magical particle trail
     trailParticles.forEach(p => {
@@ -1119,8 +1431,7 @@ cardFlip.addEventListener('keydown', (e)=>{
   const oiiaClose = document.getElementById('oiiaClose');
   const audioToggle = document.getElementById('oiiaAudioToggle');
 
-  let audioCtx = null;
-  let synthInterval = null;
+  let oiiaAudio = null;
   let isPlaying = false;
 
   function openEasterEgg() {
@@ -1133,7 +1444,7 @@ cardFlip.addEventListener('keydown', (e)=>{
 
   function closeEasterEgg() {
     oiiaOverlay.classList.remove('active');
-    stopSynth();
+    stopOiiaAudio();
     audioToggle.classList.remove('sticker-btn-active');
     audioToggle.textContent = '🎵 Enable Sound';
     isPlaying = false;
@@ -1142,84 +1453,21 @@ cardFlip.addEventListener('keydown', (e)=>{
     }, 300);
   }
 
-  // synthesized "Oiia" loop with Web Audio API (totally offline & safe)
-  function startSynth() {
-    if (audioCtx) return;
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-    // Notes sequence of the famous high pitched bouncy theme
-    const melody = [
-      { f: 880.00, d: 0.14 }, // A5
-      { f: 987.77, d: 0.14 }, // B5
-      { f: 1109.73, d: 0.14 }, // C#6
-      { f: 1318.51, d: 0.28 }, // E6
-      { f: 1109.73, d: 0.14 }, // C#6
-      { f: 1318.51, d: 0.28 }, // E6
-      { f: 1109.73, d: 0.14 }, // C#6
-      { f: 987.77, d: 0.14 },  // B5
-      { f: 880.00, d: 0.14 },  // A5
-      { f: 987.77, d: 0.14 },  // B5
-      { f: 1109.73, d: 0.14 }, // C#6
-      { f: 880.00, d: 0.28 }   // A5
-    ];
-
-    let index = 0;
-    let nextTime = audioCtx.currentTime;
-
-    function scheduler() {
-      while (nextTime < audioCtx.currentTime + 0.1) {
-        const item = melody[index % melody.length];
-        playNote(item.f, nextTime, item.d);
-        nextTime += item.d;
-        index++;
-      }
-      synthInterval = setTimeout(scheduler, 50);
+  function startOiiaAudio() {
+    if (!oiiaAudio) {
+      oiiaAudio = new Audio('assets/oiia-oiia.mp3');
+      oiiaAudio.loop = true;
     }
-
-    function playNote(freq, time, dur) {
-      if (!audioCtx) return;
-      
-      const osc = audioCtx.createOscillator();
-      const gainNode = audioCtx.createGain();
-      const filter = audioCtx.createBiquadFilter();
-
-      // triangle for sweet retro game sound, square for heavy synth
-      osc.type = index % 3 === 0 ? 'sine' : 'triangle';
-      osc.frequency.setValueAtTime(freq, time);
-
-      // pitch bend up/down to replicate the cute, goofy sliding vocal sound
-      osc.frequency.exponentialRampToValueAtTime(freq * 1.05, time + dur * 0.4);
-      osc.frequency.exponentialRampToValueAtTime(freq, time + dur);
-
-      // bandpass filter to give that high pitched retro radio voice feel
-      filter.type = 'bandpass';
-      filter.frequency.setValueAtTime(1200, time);
-      filter.Q.setValueAtTime(1.5, time);
-
-      // Volume envelope to keep notes crisp & bouncy
-      gainNode.gain.setValueAtTime(0.0, time);
-      gainNode.gain.linearRampToValueAtTime(0.12, time + 0.02);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, time + dur - 0.01);
-
-      osc.connect(filter);
-      filter.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-
-      osc.start(time);
-      osc.stop(time + dur);
-    }
-
-    scheduler();
+    oiiaAudio.currentTime = 0;
+    oiiaAudio.play().catch(err => {
+      console.warn("Audio playback failed or was blocked by browser:", err);
+    });
   }
 
-  function stopSynth() {
-    if (synthInterval) {
-      clearTimeout(synthInterval);
-      synthInterval = null;
-    }
-    if (audioCtx) {
-      audioCtx.close();
-      audioCtx = null;
+  function stopOiiaAudio() {
+    if (oiiaAudio) {
+      oiiaAudio.pause();
+      oiiaAudio.currentTime = 0;
     }
   }
 
@@ -1228,12 +1476,12 @@ cardFlip.addEventListener('keydown', (e)=>{
   
   audioToggle.addEventListener('click', () => {
     if (!isPlaying) {
-      startSynth();
+      startOiiaAudio();
       audioToggle.textContent = '🔊 Stop Sound';
       audioToggle.style.background = '#ff4fa3'; // Pink active background
       isPlaying = true;
     } else {
-      stopSynth();
+      stopOiiaAudio();
       audioToggle.textContent = '🎵 Enable Sound';
       audioToggle.style.background = ''; // Revert style
       isPlaying = false;
@@ -1246,6 +1494,180 @@ cardFlip.addEventListener('keydown', (e)=>{
       closeEasterEgg();
     }
   });
+})();
+
+// ---- Raining Goosies Interactive System ----
+(function() {
+  const rainContainer = document.createElement('div');
+  rainContainer.id = 'goose-rain-container';
+  document.body.appendChild(rainContainer);
+
+  const gooseAssets = [
+    'assets/goose-stare.png',
+    'assets/goose-angry.png',
+    'assets/goose-yawn.png',
+    'assets/oiia_goose.png',
+    'assets/goose-stare-fullbody.png'
+  ];
+
+  const particlesColors = ['#ff4fa3', '#5b79ff', '#ffc93c', '#42b883', '#ff7a59'];
+  let activeGoosies = [];
+  const maxGoosies = 6;
+  let lastSpawnTime = 0;
+  const spawnDelay = 3000; // spawn every 3.0 seconds
+
+  function playPopSynth() {
+    try {
+      // Use standard Web Audio API to produce a cute popping balloon/bubble sound
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      
+      osc.type = 'sine';
+      // Fast upwards sweep frequency for a beautiful wet pop sound
+      osc.frequency.setValueAtTime(140, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(850, audioCtx.currentTime + 0.1);
+      
+      gainNode.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+      
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.1);
+    } catch (e) {
+      // Suppressed for browser security policies on un-interacted playbacks
+    }
+  }
+
+  function spawnGoose() {
+    if (activeGoosies.length >= maxGoosies) return;
+
+    const el = document.createElement('div');
+    el.className = 'falling-goose';
+    
+    // Choose random asset
+    const src = gooseAssets[Math.floor(Math.random() * gooseAssets.length)];
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = 'Raining Goosy';
+    el.appendChild(img);
+
+    // Random sizes for depth feel (50px to 85px)
+    const size = Math.floor(Math.random() * 35) + 50;
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+
+    const startX = Math.random() * (window.innerWidth - size);
+    el.style.left = '0px';
+    el.style.top = '0px';
+    el.style.transform = `translate3d(${startX}px, ${-size - 20}px, 0)`;
+
+    const gooseObj = {
+      element: el,
+      startX: startX,
+      y: -size - 20,
+      size: size,
+      speed: Math.random() * 0.8 + 0.8, // moderate speed so they fall comfortably
+      rotation: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 1.4,
+      swayAmp: Math.random() * 20 + 10, // horizontal drift amplitude
+      swayFreq: Math.random() * 0.015 + 0.005,
+      swayOffset: Math.random() * 100,
+      scale: 1.0,
+      popped: false
+    };
+
+    const handlePop = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      if (gooseObj.popped) return;
+      gooseObj.popped = true;
+      
+      playPopSynth();
+
+      // Trigger burst particle explosion at the center
+      const centerX = gooseObj.startX + (Math.sin(gooseObj.y * gooseObj.swayFreq + gooseObj.swayOffset) * gooseObj.swayAmp) + (gooseObj.size / 2);
+      const centerY = gooseObj.y + (gooseObj.size / 2);
+      createParticleBurst(centerX, centerY);
+    };
+
+    el.addEventListener('mousedown', handlePop);
+    el.addEventListener('touchstart', handlePop, { passive: false });
+
+    rainContainer.appendChild(el);
+    activeGoosies.push(gooseObj);
+  }
+
+  function createParticleBurst(x, y) {
+    const numParticles = 12 + Math.floor(Math.random() * 6);
+    for (let i = 0; i < numParticles; i++) {
+      const part = document.createElement('div');
+      part.className = 'pop-particle';
+      
+      // Random circle trajectory
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.random() * 70 + 40;
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+      
+      part.style.setProperty('--dx', dx + 'px');
+      part.style.setProperty('--dy', dy + 'px');
+      part.style.backgroundColor = particlesColors[Math.floor(Math.random() * particlesColors.length)];
+      part.style.left = x + 'px';
+      part.style.top = y + 'px';
+      
+      rainContainer.appendChild(part);
+      
+      // Automatic removal from DOM
+      setTimeout(() => {
+        part.remove();
+      }, 450);
+    }
+  }
+
+  function update(time) {
+    // Check spawning rate
+    if (time - lastSpawnTime > spawnDelay) {
+      spawnGoose();
+      lastSpawnTime = time;
+    }
+
+    // Move, rotate, or shrink goosies
+    for (let i = activeGoosies.length - 1; i >= 0; i--) {
+      const g = activeGoosies[i];
+      if (g.popped) {
+        // Quick scaling fade-out when popped
+        g.scale -= 0.15;
+        if (g.scale <= 0) {
+          g.element.remove();
+          activeGoosies.splice(i, 1);
+          continue;
+        }
+      } else {
+        g.y += g.speed;
+        g.rotation += g.rotSpeed;
+      }
+
+      const sway = Math.sin(g.y * g.swayFreq + g.swayOffset) * g.swayAmp;
+      const currentX = g.startX + sway;
+
+      // Update styling using translate3d for buttery smooth animation
+      g.element.style.transform = `translate3d(${currentX}px, ${g.y}px, 0) rotate(${g.rotation}deg) scale(${Math.max(0, g.scale)})`;
+
+      // Clean up out of bounds elements
+      if (!g.popped && g.y > window.innerHeight + 100) {
+        g.element.remove();
+        activeGoosies.splice(i, 1);
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Initialize loop
+  requestAnimationFrame(update);
 })();
 </script>
 </body>
