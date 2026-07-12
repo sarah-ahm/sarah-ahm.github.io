@@ -123,6 +123,19 @@
       -1px 1px 0px #000000, 
       0 0 10px rgba(255, 79, 163, 0.4);
   }
+  p {
+    font-size: clamp(1.05rem, 2.5vw, 1.1rem) !important;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+
+  .memory-body p {
+    font-size: clamp(1.05rem, 2vw, 0.95rem) !important;
+  }
+
+  .quiz-result p, .card-back p {
+    font-size: clamp(1.05rem, 3vw, 1.3rem) !important;
+  }
   #hero .mcr-main {
     font-size: clamp(2.2rem, 9vw, 4.2rem);
     display: block;
@@ -161,14 +174,23 @@
 
   /* MEMORIES — polaroid cards */
   .memory-grid{
-    display:flex; flex-wrap:wrap; justify-content:center; gap:2.2rem 1.6rem;
-    max-width:960px; width:100%; padding-top:0.5rem;
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1.5rem; 
+    width: 100%; 
+    padding: 0 1rem; 
   }
   .memory-card{
-    background:var(--paper); color:var(--marker); width:300px; padding:0.9rem 0.9rem 1.2rem;
-    border:1px solid rgba(23,18,32,0.2); box-shadow:0 14px 30px rgba(0,0,0,0.35);
-    text-align:left; opacity:0; transform:translateY(24px) rotate(0deg); transition:opacity 0.6s ease, transform 0.6s ease;
-    position:relative;
+    background: var(--paper); 
+    color: var(--marker); 
+    width: 100%;       /* Fluid width */
+    max-width: 300px;  /* Keeps cards from getting too large on desktop */
+    padding: 0.9rem;
+    border: 1px solid rgba(23,18,32,0.2); 
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    position: relative;
   }
   .memory-card:nth-child(1){ --r:-3deg; }
   .memory-card:nth-child(2){ --r:2deg; }
@@ -177,13 +199,17 @@
   .memory-card:hover{ transform:translateY(-4px) rotate(0deg); }
   .memory-card .tape{ top:-12px; left:50%; margin-left:-32px; transform:rotate(-3deg); }
   .memory-photo{
-    aspect-ratio: 4/3; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4rem;
-    font-size:2rem; color:var(--marker); position:relative;
+    aspect-ratio: 4 / 3; 
+    width: 100%; 
+    overflow: hidden; /* Keeps image from overflowing the card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .memory-photo .placeholder-icon{ opacity:0.55; }
   .memory-photo .placeholder-label{ font-size:0.68rem; font-family:'Space Grotesk'; color:var(--marker); opacity:0.65; letter-spacing:0.01em; padding:0 0.6rem; text-align:center; }
   .memory-photo .placeholder-label code{ background:rgba(23,18,32,0.08); padding:0.1rem 0.35rem; }
-  .memory-photo img{ width:100%; height:100%; object-fit:contain; background:transparent; display:block; position:absolute; inset:0; }
+  .memory-photo img{ width: 100%; height: 100%; object-fit: cover; }
   .memory-body{ padding:1rem 0.3rem 0; }
   .memory-body h3{ margin:0 0 0.3rem; font-size:1.1rem; font-family:'Permanent Marker', cursive; font-weight:400; color:var(--marker); }
   .memory-body p{ margin:0; color:#3a3346; line-height:1.5; font-size:0.9rem; font-family: 'Space Grotesk', 'Special Elite', 'Courier New', Courier, monospace; }
