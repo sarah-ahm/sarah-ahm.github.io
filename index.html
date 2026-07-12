@@ -427,22 +427,20 @@
   #confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:50; }
 
   /* GAME */
-  .game-wrap{ position:relative; max-width:460px; width:100%; margin:0 auto; z-index:10; }
+  .game-wrap{ position:relative; max-width:600px !important; width:95% !important; margin:0 auto; z-index:10; }
   .game-hud{
     display:flex; justify-content:space-between; align-items:center;
     padding:0 0.2rem 0.7rem; font-family:'Space Grotesk'; font-size:0.95rem; color:var(--ink-dim);
   }
   .game-hud strong{ color:var(--gold); font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; font-weight:400; }
   #gameCanvas{
-    width: 100%;
-    max-width: 480px;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
     display: block;
     background: linear-gradient(180deg, var(--bg2), var(--bg3));
     border: 3px solid var(--marker);
     box-shadow: 8px 8px 0 var(--gold);
     touch-action: none;
-    margin: 0 auto;
   }
   .game-overlay{
     position:absolute; inset:0; background:rgba(21,15,38,0.95);
