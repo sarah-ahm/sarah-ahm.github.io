@@ -1500,22 +1500,50 @@ cardFlip.addEventListener('keydown', (e)=>{
     }, 300);
   }
 
+  // synthesized "oiia" sound — no audio file needed
+  let oiiaCtx = null;
+  let oiiaOsc = null;
+  let oiiaLfo = null;
+  let oiiaGain = null;
+
   function startOiiaAudio() {
-    if (!oiiaAudio) {
-      oiiaAudio = new Audio('assets/oiia-oiia.mp3');
-      oiiaAudio.loop = true;
-    }
-    oiiaAudio.currentTime = 0;
-    oiiaAudio.play().catch(err => {
-      console.warn("Audio playback failed or was blocked by browser:", err);
-    });
+    if (!oiiaCtx) oiiaCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (oiiaCtx.state === 'suspended') oiiaCtx.resume();
+
+    oiiaOsc = oiiaCtx.createOscillator();
+    oiiaOsc.type = 'sine';
+    oiiaOsc.frequency.value = 480;
+
+    oiiaLfo = oiiaCtx.createOscillator();
+    oiiaLfo.type = 'sine';
+    oiiaLfo.frequency.value = 6.5; // how fast it wobbles — "oi-oi-oi-oi"
+
+    const lfoDepth = oiiaCtx.createGain();
+    lfoDepth.gain.value = 200; // how wide the wobble swings, in Hz
+
+    oiiaLfo.connect(lfoDepth);
+    lfoDepth.connect(oiiaOsc.frequency);
+
+    oiiaGain = oiiaCtx.createGain();
+    oiiaGain.gain.setValueAtTime(0, oiiaCtx.currentTime);
+    oiiaGain.gain.linearRampToValueAtTime(0.12, oiiaCtx.currentTime + 0.05);
+
+    oiiaOsc.connect(oiiaGain);
+    oiiaGain.connect(oiiaCtx.destination);
+
+    oiiaOsc.start();
+    oiiaLfo.start();
   }
 
   function stopOiiaAudio() {
-    if (oiiaAudio) {
-      oiiaAudio.pause();
-      oiiaAudio.currentTime = 0;
+    if (oiiaGain && oiiaCtx) {
+      oiiaGain.gain.linearRampToValueAtTime(0, oiiaCtx.currentTime + 0.08);
     }
+    setTimeout(() => {
+      if (oiiaOsc) { oiiaOsc.stop(); oiiaOsc.disconnect(); oiiaOsc = null; }
+      if (oiiaLfo) { oiiaLfo.stop(); oiiaLfo.disconnect(); oiiaLfo = null; }
+      if (oiiaGain) { oiiaGain.disconnect(); oiiaGain = null; }
+    }, 100);
   }
 
   oiiaBtn.addEventListener('click', openEasterEgg);
