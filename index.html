@@ -158,7 +158,7 @@
     max-width:960px; width:100%; padding-top:0.5rem;
   }
   .memory-card{
-    background:var(--paper); color:var(--marker); width:250px; padding:0.9rem 0.9rem 1.2rem;
+    background:var(--paper); color:var(--marker); width:300px; padding:0.9rem 0.9rem 1.2rem;
     border:1px solid rgba(23,18,32,0.2); box-shadow:0 14px 30px rgba(0,0,0,0.35);
     text-align:left; opacity:0; transform:translateY(24px) rotate(0deg); transition:opacity 0.6s ease, transform 0.6s ease;
     position:relative;
@@ -171,17 +171,15 @@
   .memory-card .tape{ top:-12px; left:50%; margin-left:-32px; transform:rotate(-3deg); }
   .memory-photo{
     aspect-ratio: 4/3; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4rem;
-    background:repeating-linear-gradient(135deg, #e2d5b8, #e2d5b8 10px, #ded0af 10px, #ded0af 20px);
-    border:2px dashed rgba(23,18,32,0.35);
     font-size:2rem; color:var(--marker); position:relative;
   }
   .memory-photo .placeholder-icon{ opacity:0.55; }
   .memory-photo .placeholder-label{ font-size:0.68rem; font-family:'Space Grotesk'; color:var(--marker); opacity:0.65; letter-spacing:0.01em; padding:0 0.6rem; text-align:center; }
   .memory-photo .placeholder-label code{ background:rgba(23,18,32,0.08); padding:0.1rem 0.35rem; }
-  .memory-photo img{ width:100%; height:100%; object-fit:cover; background:transparent; display:block; position:absolute; inset:0; }
+  .memory-photo img{ width:100%; height:100%; object-fit:contain; background:transparent; display:block; position:absolute; inset:0; }
   .memory-body{ padding:1rem 0.3rem 0; }
   .memory-body h3{ margin:0 0 0.3rem; font-size:1.1rem; font-family:'Permanent Marker', cursive; font-weight:400; color:var(--marker); }
-  .memory-body p{ margin:0; color:#3a3346; line-height:1.5; font-size:0.9rem; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; }
+  .memory-body p{ margin:0; color:#3a3346; line-height:1.5; font-size:0.9rem; font-family: 'Space Grotesk', 'Special Elite', 'Courier New', Courier, monospace; }
 
   .note-cluster{ display:flex; flex-wrap:wrap; justify-content:center; gap:1.2rem; margin-top:3rem; max-width:640px; }
   .sticky-note{
@@ -367,7 +365,7 @@
   /* FINALE — tap to open card */
   #finale{ padding-top:4rem; padding-bottom:5rem; }
   #finale #finaleHint{ margin-bottom:1.6rem; opacity:0.75; }
-  .card-scene{ perspective:1600px; width:300px; max-width:84vw; height:400px; margin:0 auto; }
+  .card-scene{ perspective:2000px; width:520px; max-width:95vw; height:680px; margin:0 auto; }  
   .card-flip{
     position:relative; width:100%; height:100%; cursor:pointer;
     transform-style:preserve-3d; transition:transform 0.9s cubic-bezier(.22,1,.36,1);
@@ -376,22 +374,22 @@
   .card-face{
     position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
     border:2px solid var(--marker); box-shadow:8px 8px 0 var(--blue);
-    padding:2rem 1.6rem; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:3.2rem 2.2rem; display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center; gap:0.5rem; background:var(--paper); color:var(--marker);
   }
   .card-back{ transform:rotateY(180deg); box-shadow:8px 8px 0 var(--pink); }
   .card-face .tape{ top:-14px; left:50%; margin-left:-32px; transform:rotate(-4deg); z-index:2; }
   .card-cat{ margin-bottom:0.2rem; }
   .card-front-title{
-    font-size:1.8rem;
+    font-size:3rem;
     line-height:1.1;
     font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace;
     font-weight: normal;
   }
-  .card-front-name{ font-size:2.1rem; margin-top:0.4rem; color:var(--pink); }
+  .card-front-name{ font-size:3.6rem; margin-top:0.4rem; color:var(--pink); }
   .card-tap{ margin-top:1.5rem; font-size:0.8rem; opacity:0.65; animation:pulseTap 2s ease-in-out infinite; }
   @keyframes pulseTap{ 0%,100%{opacity:0.4;} 50%{opacity:0.85;} }
-  .card-back p{ line-height:1.65; font-size:1rem; margin:0; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; }
+  .card-back p{ line-height:1.65; font-size:1.3rem; margin:0; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; }
   .card-back .signature{ margin-top:1.3rem; font-family: 'Moms Typewriter', 'Special Elite', 'Courier New', Courier, monospace; font-weight: bold; font-size:1rem; color:var(--blue); }
 
   #confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:50; }
@@ -647,15 +645,15 @@
   <h1 class="hero-title">
     <span class="mcr-main">Happy birthday Hena.</span>
   </h1>
-  <a href="#game" class="scroll-cta">play the game →</a>
+  <a href="#game" class="scroll-cta">play a birthday game →</a>
   <div class="bounce">↓</div>
 </section>
 
 <!-- GAME -->
 <section id="game">
   <div class="tag-note">you're Goosy 🐾</div>
-  <h2 class="poster">catch the vibes</h2>
-  <p class="section-sub">Catch the good stuff, dodge the deadlines. Use arrow keys, mouse, or yo fingers.</p>
+  <h2 class="poster">good vibes only</h2>
+  <p class="section-sub">Catch the good stuff, dodge the rest. Use arrow keys, mouse, or yo fingers.</p>
 
   <div class="game-wrap">
     <div class="game-hud">
@@ -663,9 +661,9 @@
       <span>High Score: <strong id="gameHighScore">0</strong></span>
       <span id="gameLives">❤️❤️❤️</span>
     </div>
-    <canvas id="gameCanvas" width="480" height="560" aria-label="Catch the vibes game, move the Goose to catch falling items"></canvas>
+    <canvas id="gameCanvas" width="480" height="560" aria-label="Move the Goose to catch falling items"></canvas>
     <div class="game-overlay" id="gameOverlay">
-      <p id="gameOverlayText">☕📖🧥🎵🐰 good, 📄 bad. You have 3 lives. Use them wisely.</p>
+      <p id="gameOverlayText">☕📖🧥🎵🐰 good, ⏰ bad. You have 3 lives. Use wisely.</p>
       <button class="sticker-btn" id="gameStartBtn">play</button>
     </div>
   </div>
@@ -673,7 +671,7 @@
 
 <!-- MEMORIES -->
 <section id="memories">
-  <h2 class="poster">The Potatoes of Your Life</h2>
+  <h2 class="poster">A Flashback of Random Good Times</h2>
 
   <div class="memory-grid" id="memoryGrid">
     <div class="memory-card">
@@ -683,7 +681,7 @@
       </div>
       <div class="memory-body">
         <h3>BunBun</h3>
-        <p class="typewriter">She come, she go, nobody know.</p>
+        <p class="typewriter">She come, she go, nobody know</p>
       </div>
     </div>
     <div class="memory-card">
@@ -692,8 +690,8 @@
         <img src="assets/chonky.jpg" alt="Chonky" id="photo-chonky" style="display: block;">
       </div>
       <div class="memory-body">
-        <h3>Chonky</h3>
-        <p class="typewriter">The truest potato there ever was.</p>
+        <h3>The Legendary Chonky</h3>
+        <p class="typewriter">The truest potato there ever was</p>
       </div>
     </div>
     <div class="memory-card">
@@ -702,8 +700,8 @@
         <img src="assets/birthing_a_goose.jpg" alt="Goose" id="photo-goose-birth" style="display: block;">
       </div>
       <div class="memory-body">
-        <h3>Goose</h3>
-        <p class="typewriter">That time you gave birth to a Goose. What horror.</p>
+        <h3>Goose Lady's Origin Story</h3>
+        <p class="typewriter">Remember that time you gave birth to a Goose. What horror.</p>
       </div>
     </div>
   </div>
@@ -734,14 +732,14 @@
       <div class="card-face card-front">
         <div class="tape"></div>
         <div class="card-cat" aria-hidden="true" style="margin-bottom: 1rem; width: 100%; display: flex; justify-content: center;">
-          <img src="assets/hanging_with_goose.jpg" alt="Goosy chillin" style="max-width: 160px; max-height: 140px; width: auto; height: auto; object-fit: contain; border-radius: 12px; border: 3px solid var(--marker); box-shadow: 4px 4px 0 var(--pink); background: #fbf5e6; padding: 4px;">
+          <img src="assets/hanging_with_goose.jpg" alt="Goosy chillin" style="max-width: 400px; max-height: 360px; width: auto; height: auto; object-fit: contain; border-radius: 12px; border: 3px solid var(--marker); box-shadow: 4px 4px 0 var(--pink); background: #fbf5e6; padding: 4px;">
         </div>
         <div class="mcr-main">Happy birthday Hena.</div>
         <div class="card-tap">tap to open ✨</div>
       </div>
       <div class="card-face card-back">
         <div class="tape"></div>
-        <p>Happy birthday lady we loveth you.</p>
+        <p>Happy birthday lady we loveth you!!! We hope you haveth the wonderous birthday you deserve. We shall see you soon!</p>
         <div class="signature">— YO FAM</div>
       </div>
     </div>
@@ -751,7 +749,7 @@
 <!-- OIIA GOOSY EASTER EGG -->
 <button id="oiiaBtn" class="oiia-float-btn" aria-label="Oiia Goosy Easter Egg">
   <img src="assets/oiia_goose.png" alt="Goosy Head" class="oiia-btn-icon">
-  <span>Oiia Goosy! 🎵</span>
+  <span>OIIA Goose</span>
 </button>
 
 <div id="oiiaOverlay" class="oiia-overlay hidden">
@@ -761,10 +759,10 @@
     <div class="oiia-stretch-wrap">
       <img src="assets/oiia_goose.png" alt="Spinning Goosy" class="oiia-spinning-img">
     </div>
-    <h2 class="oiia-title poster">OIIA OIIA!</h2>
-    <p class="oiia-subtitle typewriter">Goosy is spinning into the 25th dimension! 🌀</p>
+    <h2 class="oiia-title poster">GOOSE</h2>
+    <p class="oiia-subtitle typewriter">Goosy is spinning into the 25th dimension to join you!</p>
     <div class="oiia-controls">
-      <button class="sticker-btn" id="oiiaAudioToggle">🎵 Enable Sound</button>
+      <button class="sticker-btn" id="oiiaAudioToggle">🎵 LET THE OIIA BEGIN</button>
     </div>
     <div class="oiia-marquee">
       <div class="oiia-marquee-content">OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA OIIA</div>
@@ -833,17 +831,17 @@ if (window.location.protocol === 'file:' || !window.IntersectionObserver) {
 
 // "See More Memories" dynamic loading
 const extraMemories = [
-  { src: 'assets/together.jpg', title: 'Sisters Forever 💖', desc: 'Through every chapter, always side by side.' },
-  { src: 'assets/so_happy.jpg', title: 'Smiles & Sunshine ☀️', desc: 'Making every ordinary moment feel special.' },
-  { src: 'assets/dance.jpg', title: 'Dancing Hearts 💃', desc: 'Light on your feet, filling the room with joy.' },
-  { src: 'assets/ballet.JPG', title: 'Grace & Ballet 🩰', desc: 'Poised, elegant, and effortlessly beautiful.' },
-  { src: 'assets/cute_potato.jpg', title: 'Cute Potato Mode 🥔', desc: 'Max comfy, wrapped in the sweetest vibes.' },
-  { src: 'assets/coffee.jpg', title: 'Coffee & Chats ☕', desc: 'Sipping warm drinks and laughing till the sun comes up.' },
-  { src: 'assets/bear.JPG', title: 'Beary Cuddly 🧸', desc: 'The softest, most adorable moments together.' },
-  { src: 'assets/selfie.jpg', title: 'Camera Ready 📸', desc: 'Perfect frames of our favorite memories.' },
-  { src: 'assets/at_le_beach.jpg', title: 'Beach Day Out 🏖️', desc: 'Sandy paws, warm breezes, and sunny memories.' },
-  { src: 'assets/and_how.JPG', title: 'Absolutely Iconic ✨', desc: 'Unapologetically yourself, always.' },
-  { src: 'assets/aaah.jpg', title: 'Chaos Energy ⚡', desc: 'Goose screaming into the void! Love it.' }
+  { src: 'assets/together.jpg', title: 'Sisters Forever 💖', desc: 'Through every chapter, we shall sip coffee together' },
+  { src: 'assets/so_happy.jpg', title: 'YOU SO CUTE ☀️', desc: 'Such a happy little potato' },
+  { src: 'assets/dance.jpg', title: 'Dancing Era 💃', desc: 'Your moves are legendary somewhere' },
+  { src: 'assets/ballet.JPG', title: 'Just a Ballerina 🩰', desc: "I sincerely hope you've never heard of Ballerina Cappuccina" },
+  { src: 'assets/cute_potato.jpg', title: 'YOU STILL SO CUTE 🥔', desc: 'Potato life prevails' },
+  { src: 'assets/coffee.jpg', title: 'Properly Caffinated ☕', desc: 'Always prepared for them eepy days' },
+  { src: 'assets/bear.JPG', title: 'That Bear 🧸', desc: 'I am haunted by this image' },
+  { src: 'assets/selfie.jpg', title: 'Selfie 📸', desc: 'Your arms never limit your selfiebility' },
+  { src: 'assets/at_le_beach.jpg', title: 'Always at the beach 🏖️', desc: 'We keep ending up at beached, they pretty nice' },
+  { src: 'assets/and_how.JPG', title: 'Iconic since birth ✨', desc: 'Look at you, presenting the points' },
+  { src: 'assets/aaah.jpg', title: 'Chaotic Good ⚡', desc: "IDK what's happenin' here but it looks like a good time" }
 ];
 
 const showBtn = document.getElementById('showMoreMemoriesBtn');
@@ -939,46 +937,46 @@ cardFlip.addEventListener('keydown', (e)=>{
     {
       q: "It's 10pm. What are you doing?",
       options: [
-        {text:"Sitting on the nearest warm laptop", type:"loaf", emoji:"💻"},
+        {text:"Bundled up in warm blankets while reading a good ol' book", type:"loaf", emoji:"🛏️"},
         {text:"Sprinting across the apartment for no reason", type:"feral", emoji:"⚡"},
-        {text:"Staring at the wall", type:"judge", emoji:"👁️"},
-        {text:"Sneezing because you're cuddling with a Goose", type:"lap", emoji:"🤧"},
+        {text:"Staring at a wall", type:"judge", emoji:"👁️"},
+        {text:"Hanging out with The Goose", type:"lap", emoji:"🪿"},
       ]
     },
     {
       q: "You are eepy. What do you do?",
       options: [
-        {text:"Take Sana's spot on the couch when she's not looking", type:"judge", emoji:"🐾"},
+        {text:"Take Sana's spot on the couch when she's not looking", type:"judge", emoji:"🛋️"},
         {text:"Zoomies first, sleep later", type:"feral", emoji:"💨"},
-        {text:"Loaf mode on the the carpet", type:"loaf", emoji:"🍞"},
-        {text:"Cuddle with the nearest approved hooman", type:"lap", emoji:"❤️"},
+        {text:"Loaf. No arms, no legs, just bread.", type:"loaf", emoji:"🍞"},
+        {text:"Cuddle with the nearest Goose", type:"lap", emoji:"❤️"},
       ]
     },
     {
       q: "You hungry. Pick a snack.",
       options: [
-        {text:"Iced coffee because you need caffeine", type:"loaf", emoji:"☕"},
-        {text:"Whatever's on the counter hehehe", type:"feral", emoji:"🧥"},
+        {text:"A big ol' cup of hot chocolate", type:"loaf", emoji:"☕"},
+        {text:"Random speck on the ground, perhaps from a cookie", type:"feral", emoji:"🍪"},
         {text:"No snacks, you only eat proper meals", type:"judge", emoji:"🍽️"},
-        {text:"Lickin' some ce cream while you cuddle with a Goose in front of the TV", type:"lap", emoji:"🥄"},
+        {text:"Anything as long as you have a free hand to pet The Goose", type:"lap", emoji:"🪿"},
       ]
     },
     {
-      q: "How do you react when a minor inconvenience occurs?",
+      q: "A minor inconvenience has occured! What do you do?",
       options: [
-        {text:"Hiss and flap wings aggressively", type:"feral", emoji:"🦢"},
-        {text:"Stare intensely until they go away", type:"judge", emoji:"👁️"},
-        {text:"Turn into a warm, round loaf and ignore reality", type:"loaf", emoji:"🍞"},
-        {text:"Demand immediate head scratches and cuddles", type:"lap", emoji:"🤗"},
+        {text:"Hiss and flap non-existent wings aggressively", type:"feral", emoji:"🦅"},
+        {text:"Reflect deeply upon life", type:"judge", emoji:"👁️"},
+        {text:"Turn into loaf and ignore reality", type:"loaf", emoji:"🍞"},
+        {text:"Demand emotional support NOW from The Goose", type:"lap", emoji:"🪿"},
       ]
     },
     {
-      q: "Pick your closing-track energy.",
+      q: "You must leave the room. How do you do it?",
       options: [
-        {text:"\"I'm Not Okay\" dramatics", type:"feral", emoji:"🎸"},
-        {text:"Effortlessly iconic, judging everyone in the room", type:"judge", emoji:"💅"},
-        {text:"Soft, a little embarrassing, staying close", type:"lap", emoji:"🎀"},
-        {text:"Doesn't move for anyone. Main character anyway.", type:"loaf", emoji:"🛋️"},
+        {text:"Meow at the ceiling and gallop away", type:"feral", emoji:"🎸"},
+        {text:"Give the nearest person disapproving look and strut away", type:"judge", emoji:"💅"},
+        {text:"With The Goose in your arms", type:"lap", emoji:"🪿"},
+        {text:"Flop. Oh no, you can't leave now.", type:"loaf", emoji:"🛋️"},
       ]
     }
   ];
@@ -986,31 +984,23 @@ cardFlip.addEventListener('keydown', (e)=>{
   const results = {
     loaf: {
       title:"Loaf Goose",
-      desc:"You're fully melted into whatever surface is warmest and not moving for anyone or anything. Deadline? Not yo problem. You are loaf.",
+      desc:"You are a perfectly rounded loaf of toasty bread with unshakeable inner peace. Deadline? Never a problem. You are loaf.",
       image: "assets/goose-yawn.png",
-      zodiacElement: "🛋️ RULING PLANET: THE WARM RADIATOR",
-      zodiacReading: "Under this sign, you possess an unshakeable inner peace. You do not chase opportunities; you let them find you while you lie perfectly still. Blessed with infinite patience (or just extreme reluctance to get up)."
     },
     feral: {
       title:"Possessed Goose",
-      desc:"You're sprinting at full speed through the apartment for reasons only you understand. Possessed or just vibing, no one will ever know.",
+      desc:"You are an enigma guided by unseen spirits. Possessed or just vibing, no one will ever know.",
       image: "assets/goose-angry.png",
-      zodiacElement: "⚡ RULING PLANET: 3 AM ZOOMIES",
-      zodiacReading: "Driven by chaotic cosmic currents, your mind moves at lightspeed, usually right when you should be sleeping. Your path is unpredictable, incredibly fast, and guided by unseen spirits (or a random shadow on the wall)."
     },
     judge: {
       title:"Taurus Goose",
-      desc:"You judge silently while rocking them sweatpants. Sometimes you moo. Such is the life of a Taurus Goose.",
-      image: "assets/goose-stare.png",
-      zodiacElement: "👁️ RULING PLANET: SILENT SIDE-EYE",
-      zodiacReading: "An earth sign through and through. You demand absolute comfort, premium snacks, and the right to observe everyone else's life choices with elegant, quiet skepticism. Unapologetically stubborn, undeniably iconic."
+      desc:"You give side-eye while rocking them sweatpants and monching them premium snacks. Elegant, unapologetic, and undeniably iconic.",
+      image: "assets/goose-angry.png",
     },
     lap: {
       title:"Cuddle Goosy",
-      desc:"You are eepy and have found a wonderful heat source. What a potato.",
-      image: "assets/cute_potato.jpg",
-      zodiacElement: "🎀 RULING PLANET: COZY FLEECE",
-      zodiacReading: "A gentle water-like sign representing warmth and emotional gravity. You have the rare power to make anyone around you immediately relaxed. You seek absolute comfort, soft fabrics, and a safe place to land."
+      desc:"You yearn for a seek absolute comfort and just want to cuddle. Is that so much to ask?",
+      image: "assets/hanging_with_goose.jpg",
     }
   };
 
@@ -1092,7 +1082,7 @@ cardFlip.addEventListener('keydown', (e)=>{
               
               <div class="goose-stat-bar-row">
                 <div class="goose-stat-bar-label">
-                  <span>⚡ Feral Chaos</span>
+                  <span>⚡ Chaotic Goose Energy</span>
                   <span>${pctFeral}%</span>
                 </div>
                 <div class="goose-stat-bar-outer">
@@ -1102,7 +1092,7 @@ cardFlip.addEventListener('keydown', (e)=>{
               
               <div class="goose-stat-bar-row">
                 <div class="goose-stat-bar-label">
-                  <span>👁️ Taurus Judgment</span>
+                  <span>👁️ Likelyhood to have a law degree</span>
                   <span>${pctJudge}%</span>
                 </div>
                 <div class="goose-stat-bar-outer">
@@ -1112,7 +1102,7 @@ cardFlip.addEventListener('keydown', (e)=>{
               
               <div class="goose-stat-bar-row">
                 <div class="goose-stat-bar-label">
-                  <span>🎀 Cozy Potato-ness</span>
+                  <span>🎀 Cozy Potatoness</span>
                   <span>${pctLap}%</span>
                 </div>
                 <div class="goose-stat-bar-outer">
@@ -1174,8 +1164,8 @@ cardFlip.addEventListener('keydown', (e)=>{
   const scoreEl = document.getElementById('gameScore');
   const livesEl = document.getElementById('gameLives');
 
-  const goodEmojis = ['☕','📖','🧥','💻','🎵','🐰'];
-  const badEmoji = '📄';
+  const goodEmojis = ['☕','📖','🧥','🎵','🐰'];
+  const badEmoji = '⏰';
 
   let items = [];
   let score = 0, lives = 3;
@@ -1329,7 +1319,7 @@ cardFlip.addEventListener('keydown', (e)=>{
       ? "Incredible. You are Goose-worthy."
       : score >= 80
       ? "Solid run. Goosy approves of you."
-      : "Not bad. Goosy considers you to be a decent hooman.";
+      : "Not bad. You are decent hooman.";
     overlayText.textContent = `Game over — ${score} points. ${msg}`;
     startBtn.textContent = 'play again';
     overlay.classList.remove('hidden');
@@ -1493,7 +1483,7 @@ cardFlip.addEventListener('keydown', (e)=>{
     oiiaOverlay.classList.remove('active');
     stopOiiaAudio();
     audioToggle.classList.remove('sticker-btn-active');
-    audioToggle.textContent = '🎵 Enable Sound';
+    audioToggle.textContent = '🎵 LET THE OIIA BEGIN';
     isPlaying = false;
     setTimeout(() => {
       oiiaOverlay.classList.add('hidden');
@@ -1506,44 +1496,20 @@ cardFlip.addEventListener('keydown', (e)=>{
   let oiiaLfo = null;
   let oiiaGain = null;
 
+  let audio = new Audio('assets/oiia-oiia-sound.mp3'); 
+
   function startOiiaAudio() {
-    if (!oiiaCtx) oiiaCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if (oiiaCtx.state === 'suspended') oiiaCtx.resume();
-
-    oiiaOsc = oiiaCtx.createOscillator();
-    oiiaOsc.type = 'sine';
-    oiiaOsc.frequency.value = 480;
-
-    oiiaLfo = oiiaCtx.createOscillator();
-    oiiaLfo.type = 'sine';
-    oiiaLfo.frequency.value = 6.5; // how fast it wobbles — "oi-oi-oi-oi"
-
-    const lfoDepth = oiiaCtx.createGain();
-    lfoDepth.gain.value = 200; // how wide the wobble swings, in Hz
-
-    oiiaLfo.connect(lfoDepth);
-    lfoDepth.connect(oiiaOsc.frequency);
-
-    oiiaGain = oiiaCtx.createGain();
-    oiiaGain.gain.setValueAtTime(0, oiiaCtx.currentTime);
-    oiiaGain.gain.linearRampToValueAtTime(0.12, oiiaCtx.currentTime + 0.05);
-
-    oiiaOsc.connect(oiiaGain);
-    oiiaGain.connect(oiiaCtx.destination);
-
-    oiiaOsc.start();
-    oiiaLfo.start();
+    audio.currentTime = 0;
+    
+    // Play the file
+    audio.play().catch(error => {
+      console.error("Playback failed:", error);
+    });
   }
 
   function stopOiiaAudio() {
-    if (oiiaGain && oiiaCtx) {
-      oiiaGain.gain.linearRampToValueAtTime(0, oiiaCtx.currentTime + 0.08);
-    }
-    setTimeout(() => {
-      if (oiiaOsc) { oiiaOsc.stop(); oiiaOsc.disconnect(); oiiaOsc = null; }
-      if (oiiaLfo) { oiiaLfo.stop(); oiiaLfo.disconnect(); oiiaLfo = null; }
-      if (oiiaGain) { oiiaGain.disconnect(); oiiaGain = null; }
-    }, 100);
+    audio.pause();
+    audio.currentTime = 0;
   }
 
   oiiaBtn.addEventListener('click', openEasterEgg);
@@ -1552,12 +1518,12 @@ cardFlip.addEventListener('keydown', (e)=>{
   audioToggle.addEventListener('click', () => {
     if (!isPlaying) {
       startOiiaAudio();
-      audioToggle.textContent = '🔊 Stop Sound';
+      audioToggle.textContent = '🔊 Stop the OIIA';
       audioToggle.style.background = '#ff4fa3'; // Pink active background
       isPlaying = true;
     } else {
       stopOiiaAudio();
-      audioToggle.textContent = '🎵 Enable Sound';
+      audioToggle.textContent = '🎵 OIIA once again';
       audioToggle.style.background = ''; // Revert style
       isPlaying = false;
     }
