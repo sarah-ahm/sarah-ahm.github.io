@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sarah Ahmed — Staff Technical Writer & Human Experience Designer. UX writing for generative AI features, conversational interfaces, and inclusive design.">
-  <title>Sarah Ahmed | Human Experience Designer</title>
+  <meta name="description" content="Sarah Ahmed: Staff Technical Writer & Human Experience Designer">
+  <title>Sarah Ahmed | Staff Technical Writer</title>
+  
+  <!-- Preload fonts to eliminate CLS and FOIT -->
+  <link rel="preload" href="./fonts/BrandonGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/selawk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,44 +16,21 @@
   <!-- WCAG 2.4.1 Skip Navigation Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Midnight Navy Navbar (Exact Match to Screenshot) -->
+  <!-- Minimal Sticky Navbar (codyanthony.dev style) -->
   <header class="site-header">
     <nav class="site-nav site-container" aria-label="Primary Navigation">
-      <a href="#main-content" class="nav-brand-badge touch-target" aria-label="Sarah Ahmed - Home">
-        <!-- Cute Cat Avatar Badge -->
-        <svg viewBox="0 0 36 36" width="34" height="34" fill="none" aria-hidden="true">
-          <rect width="36" height="36" rx="8" fill="#FFFFFF"/>
-          <path d="M10 22C10 25.3137 13.5817 28 18 28C22.4183 28 26 25.3137 26 22C26 19 24 16 18 16C12 16 10 19 10 22Z" fill="#131A34"/>
-          <circle cx="14" cy="20" r="1.5" fill="#FFFFFF"/>
-          <path d="M21 20L23 20" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M18 22V24M16.5 24H19.5" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/>
-          <path d="M11 16L13 11L16 15" fill="#131A34"/>
-          <path d="M25 16L23 11L20 15" fill="#131A34"/>
-        </svg>
+      <!-- Text Brand Mark (No icon) -->
+      <a href="#main-content" class="nav-brand touch-target" aria-label="Sarah Ahmed - Back to top">
+        Sarah Ahmed
       </a>
 
-      <!-- Social Icon Links -->
-      <ul class="nav-socials" aria-label="Social Profiles">
+      <!-- Clean 2-Item Navigation -->
+      <ul class="nav-menu" role="list">
         <li>
-          <a href="https://medium.com/@theSarah" target="_blank" rel="noopener noreferrer" class="social-icon-link touch-target" aria-label="Medium">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-            </svg>
-          </a>
+          <a href="#work" class="nav-link touch-target">Projects</a>
         </li>
         <li>
-          <a href="https://github.com/sarah-ahm" target="_blank" rel="noopener noreferrer" class="social-icon-link touch-target" aria-label="GitHub">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/sarahahmed31415/" target="_blank" rel="noopener noreferrer" class="social-icon-link touch-target" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
+          <a href="#about" class="nav-link touch-target">About</a>
         </li>
       </ul>
     </nav>
@@ -58,7 +39,7 @@
   <!-- Landmark Main Content -->
   <main id="main-content">
 
-    <!-- Hero Section (Exact Copy & Script Accent) -->
+    <!-- Hero Section -->
     <section class="hero-section site-container" aria-labelledby="hero-title">
       <p class="hero-greeting">Hey! I'm <em class="script-accent">Sarah,</em> a compassion-driven writer, designer, &amp; friend.</p>
       
@@ -68,63 +49,63 @@
       </h1>
     </section>
 
-    <!-- Case Study Section (Alternating 50/50 Rows from Screenshot) -->
+    <!-- Case Study Section with Valid Heading Hierarchy (h1 -> h2) -->
     <section id="work" class="showcase-section site-container" aria-label="Selected Projects">
       
-      <!-- Project 01: Salesforce (Cloud Card Left, Content Right) -->
+      <!-- Project 01: Salesforce -->
       <article class="project-showcase-row">
         <figure class="card-visual visual-salesforce">
-          <img src="https://cdn.prod.website-files.com/5f260c702480e11be0e68539/6340d5ae859df6fbef8098a0_Salesforce-logo.jpg" alt="Salesforce cloud logo" loading="lazy">
+          <img src="https://cdn.prod.website-files.com/5f260c702480e11be0e68539/6340d5ae859df6fbef8098a0_Salesforce-logo.jpg" alt="Salesforce cloud logo" width="280" height="195" loading="lazy">
         </figure>
-        <header class="card-text-block">
-          <ul class="badge-list" aria-label="Project categories">
+        <div class="card-text-block">
+          <ul class="badge-list" aria-label="Salesforce project categories">
             <li><span class="badge">UX Writing</span></li>
             <li><span class="badge">Conversational AI</span></li>
             <li><span class="badge">Enterprise</span></li>
           </ul>
-          <h3>UX Writing @ Salesforce</h3>
+          <h2>UX Writing @ Salesforce</h2>
           <a href="https://thesarahahmed.webflow.io/work/salesforce" class="project-link touch-target" aria-label="Take a quick look at the Salesforce UX Writing case study">
             <span class="link-text">take a quick look</span>
             <span class="arrow-icon" aria-hidden="true">➔</span>
           </a>
-        </header>
+        </div>
       </article>
 
-      <!-- Project 02: LinkedIn (Content Left, Electric Blue Card Right) -->
+      <!-- Project 02: LinkedIn -->
       <article class="project-showcase-row reverse-row">
-        <header class="card-text-block">
-          <ul class="badge-list" aria-label="Project categories">
+        <div class="card-text-block">
+          <ul class="badge-list" aria-label="LinkedIn project categories">
             <li><span class="badge">Product Design</span></li>
             <li><span class="badge">Product Strategy</span></li>
           </ul>
-          <h3>LinkedIn for Students Concept</h3>
+          <h2>LinkedIn for Students Concept</h2>
           <a href="https://thesarahahmed.webflow.io/work/linkedin-for-students" class="project-link touch-target" aria-label="Read the LinkedIn for Students concept case study">
             <span class="link-text">read the case study</span>
             <span class="arrow-icon" aria-hidden="true">➔</span>
           </a>
-        </header>
+        </div>
         <figure class="card-visual visual-linkedin">
-          <img src="https://cdn.prod.website-files.com/5f260c702480e11be0e68539/60eb607d446e3da45986cb8a_linkedin_iMac.png" alt="LinkedIn for Students concept mockup on an iMac" loading="lazy">
+          <img src="https://cdn.prod.website-files.com/5f260c702480e11be0e68539/60eb607d446e3da45986cb8a_linkedin_iMac.png" alt="LinkedIn for Students concept mockup on an iMac" width="400" height="300" loading="lazy">
         </figure>
       </article>
 
-      <!-- Project 03: Santa Clara University (Blush Pink Card Left, Content Right) -->
+      <!-- Project 03: Santa Clara University -->
       <article class="project-showcase-row">
         <figure class="card-visual visual-scu">
-          <img src="https://cdn.prod.website-files.com/5f260c702480e11be0e68539/60eb60533a867a6b78d86893_scu_imac.png" alt="Santa Clara University Archives redesign on an iMac" loading="lazy">
+          <img src="https://cdn.prod.website-files.com/5f260c702480e11be0e68539/60eb60533a867a6b78d86893_scu_imac.png" alt="Santa Clara University Archives redesign on an iMac" width="400" height="300" loading="lazy">
         </figure>
-        <header class="card-text-block">
-          <ul class="badge-list" aria-label="Project categories">
+        <div class="card-text-block">
+          <ul class="badge-list" aria-label="Santa Clara University project categories">
             <li><span class="badge">UX Design</span></li>
             <li><span class="badge">UX Research</span></li>
             <li><span class="badge">Internship</span></li>
           </ul>
-          <h3>UX Design and Research @ Santa Clara University</h3>
+          <h2>UX Design and Research @ Santa Clara University</h2>
           <a href="https://thesarahahmed.webflow.io/work/scu" class="project-link touch-target" aria-label="Read the Santa Clara University case study">
             <span class="link-text">read the case study</span>
             <span class="arrow-icon" aria-hidden="true">➔</span>
           </a>
-        </header>
+        </div>
       </article>
 
     </section>
@@ -153,15 +134,18 @@
 
   </main>
 
-  <!-- Editorial Warm Footer -->
+  <!-- Editorial Warm Footer (Consolidated Socials) -->
   <footer id="contact" class="site-footer">
     <section class="site-container footer-container">
       <nav class="footer-social-row" aria-label="Footer Contact Links">
+        <a href="https://github.com/sarah-ahm" target="_blank" rel="noopener noreferrer" class="footer-link touch-target">
+          <span>GitHub</span>
+        </a>
         <a href="https://www.linkedin.com/in/sarahahmed31415/" target="_blank" rel="noopener noreferrer" class="footer-link touch-target">
-          <span>☕ LinkedIn</span>
+          <span>LinkedIn</span>
         </a>
         <a href="mailto:hello@thesarahahmed.com?subject=Hey%20Sarah!" class="footer-link touch-target">
-          <span>🍜 Email</span>
+          <span>Email</span>
         </a>
       </nav>
 
@@ -172,9 +156,9 @@
     </section>
   </footer>
 
-  <!-- Compact Floating Chat Assistant (Non-Obtrusive FAB) -->
-  <aside id="chat-widget" aria-label="Portfolio Assistant">
-    <section id="chat-window" aria-labelledby="chat-heading" hidden>
+  <!-- Compact Floating Chat Assistant -->
+  <aside id="chat-widget" aria-label="Portfolio Assistant Widget">
+    <section id="chat-window" role="region" aria-labelledby="chat-heading" hidden>
       <header>
         <h3 id="chat-heading">Assistant // Sarah Ahmed</h3>
         <button type="button" id="chat-close" aria-label="Close Assistant Window">✕</button>
@@ -187,7 +171,7 @@
       <form id="chat-form">
         <label for="chat-input">Input Query</label>
         <input type="text" id="chat-input" name="message" required placeholder="e.g., Tell me about Salesforce..." autocomplete="off">
-        <button type="submit" id="chat-submit" aria-label="Send Query">Send</button>
+        <button type="submit" id="chat-submit">Send</button>
       </form>
     </section>
 

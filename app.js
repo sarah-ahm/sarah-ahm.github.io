@@ -22,14 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Toggles the visibility of the chat interface.
    * Maintains accurate ARIA state and ensures focus is never trapped.
-   * @param {boolean} shouldOpen
+   * @param {boolean} [shouldOpen]
    */
   const toggleChat = (shouldOpen) => {
-    const isExpanded = shouldOpen ?? chatToggle.getAttribute('aria-expanded') === 'false';
+    const currentState = chatToggle.getAttribute('aria-expanded') === 'true';
+    const nextState = shouldOpen !== undefined ? shouldOpen : !currentState;
 
-    chatToggle.setAttribute('aria-expanded', String(isExpanded));
+    chatToggle.setAttribute('aria-expanded', String(nextState));
 
-    if (isExpanded) {
+    if (nextState) {
       chatWindow.removeAttribute('hidden');
       chatInput.focus();
     } else {
@@ -78,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   };
 
-  // Event Listeners
-  chatToggle.addEventListener('click', () => toggleChat(true));
+  // Event Listeners — allows toggle button to both open and close cleanly
+  chatToggle.addEventListener('click', () => toggleChat());
   
   if (chatClose) {
     chatClose.addEventListener('click', () => toggleChat(false));

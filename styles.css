@@ -1,23 +1,81 @@
 /* ==========================================================================
-   SARAH AHMED PORTFOLIO — EXACT WEBLOW REPLICA (MATCHING SCREENSHOT)
-   Aesthetics: thesarahahmed.webflow.io
-   Midnight Navy: #131A34 | Electric Blue: #0B66C3 | Blush Pink: #F7D3D7
-   Accessibility: WCAG 2.2 AAA (17.1:1 Contrast, 44x44px Targets, Reflow 1.4.10)
-   Tight Hover Activation Space, Whole-Button Motion, Static Visual Cards
+   SARAH AHMED PORTFOLIO — ACCESSIBILITY & PERFORMANCE HARDENED (WCAG 2.2 AAA)
+   Aesthetics: codyanthony.dev Header + Webflow Case Studies
+   Headings: Brandon Grotesque (Self-hosted)
+   Body: Selawik (Self-hosted, metric-matched to Segoe UI)
    ========================================================================== */
 
-/* 1. Global Tokens */
+/* 1. Self-Hosted Web Fonts */
+@font-face {
+  font-family: 'Brandon Grotesque';
+  src: url('./fonts/BrandonGrotesque-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brandon Grotesque';
+  src: url('./fonts/BrandonGrotesque-Bold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brandon Grotesque';
+  src: url('./fonts/BrandonGrotesque-Bold.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Selawik';
+  src: url('./fonts/selawk.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Selawik';
+  src: url('./fonts/selawksb.woff2') format('woff2');
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Global Tokens */
 :root {
   --ink: #131A34;
-  --bg: #FFFFFF;
-  --pill-bg: #EBF0FA;
-  --pill-text: #24334E; /* 11.08:1 contrast on #EBF0FA (Hardened for WCAG AAA 7:1) */
-  --card-sf: #F4F7FE;
+  --bg: #F5F7FE;             
+  --pill-bg: #E3EBFA;          
+  --pill-text: #1D2D49;        /* 10.57:1 Contrast on #E3EBFA (WCAG AAA >= 7.0:1) */
+  --card-sf: #FFFFFF;         
   --card-li: #0B66C3;
   --card-scu: #F7D3D7;
   --radius-card: 26px;
   --radius-pill: 9999px;
-  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --font-main:
+    "Selawik", 
+    "Segoe UI", 
+    -apple-system, 
+    BlinkMacSystemFont, 
+    Roboto, 
+    sans-serif;
+
+  --font-heading: 
+    "Brandon Grotesque", 
+    "brandon-grotesque", 
+    "HvDTrial Brandon Grotesque",
+    "Century Gothic",
+    "Avenir Next",
+    "Avenir",
+    "Segoe UI",
+    sans-serif;  
+
   --font-script: "Caveat", "Brush Script MT", cursive, Georgia, serif;
 }
 
@@ -25,10 +83,15 @@
   box-sizing: border-box;
 }
 
+/* 
+   IMPORTANT: 'overflow-x: clip' prevents horizontal scrollbars without 
+   breaking 'position: sticky' (which 'overflow-x: hidden' breaks).
+*/
 html {
   font-size: 100%;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  scroll-padding-top: 5rem; /* Prevents sticky nav from covering section headers */
+  overflow-x: clip;
 }
 
 body {
@@ -36,13 +99,22 @@ body {
   color: var(--ink);
   font-family: var(--font-main);
   line-height: 1.65;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   margin: 0;
   min-height: 100dvh;
-  overflow-x: hidden;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* 2. Accessibility Foundations */
+/* 3. Global Heading Typography */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.015em;
+  text-rendering: optimizeLegibility;
+}
+
+/* 4. Accessibility & Focus Architecture (WCAG 2.4.13 Level AAA) */
 .skip-link {
   position: absolute;
   top: -999px;
@@ -64,65 +136,114 @@ body {
   outline-offset: 3px !important;
 }
 
-/* 3. Containers & Mobile Gutters (Guaranteed 24px-48px) */
+/* 5. Layout Containers */
 .site-container {
   max-width: 1280px;
   margin-inline: auto;
-  padding-inline: clamp(1.5rem, 6vw, 4.5rem) !important;
+  padding-inline: clamp(1.25rem, 6vw, 4.5rem) !important;
   width: 100%;
 }
 
-/* 4. Midnight Navy Header */
+/* 6. True Sticky Minimal Navbar (codyanthony.dev style) */
 header.site-header {
-  background-color: var(--ink);
-  padding-block: 1.15rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Stays reliably above cards, images, and content */
+  background-color: rgba(245, 247, 254, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(19, 26, 52, 0.08);
+  padding-block: 0.5rem;
   width: 100%;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  header.site-header {
+    background-color: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 nav.site-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
-.nav-brand-badge {
+/* Text Mark */
+.nav-brand {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-width: 44px;
   min-height: 44px;
-  border-radius: 8px;
+  min-width: 44px;
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  letter-spacing: 0.01em;
   text-decoration: none;
+  white-space: nowrap; /* Never breaks onto 2 lines */
+  flex-shrink: 0;
+  border-radius: 6px;
+  transition: opacity 0.15s ease;
 }
 
-ul.nav-socials {
+.nav-brand:hover {
+  opacity: 0.75;
+}
+
+/* Nav Menu Links */
+ul.nav-menu {
   display: flex;
   align-items: center;
+  gap: clamp(0.75rem, 2.5vw, 1.75rem);
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
-.social-icon-link {
-  color: #FFFFFF;
+.nav-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
   min-height: 44px;
-  border-radius: 50%;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  min-width: 44px;
+  padding: 0.25rem 0.5rem;
+  color: #2C3550; /* 11.3:1 contrast on #F5F7FE (Exceeds WCAG AAA >= 7.0:1) */
+  font-family: var(--font-main);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.18s ease;
 }
 
-.social-icon-link:hover {
-  opacity: 0.8;
-  transform: translateY(-2px);
+.nav-link:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1.5px;
 }
 
-/* --------------------------------------------------------------------------
-   5. Hero Section (Greeting & 2-Line Display Title)
-   -------------------------------------------------------------------------- */
+/* Safeguard for screens under 360px (Foldable outer screens, small phones) */
+@media (max-width: 360px) {
+  .site-container {
+    padding-inline: 0.85rem !important;
+  }
+
+  ul.nav-menu {
+    gap: 0.25rem;
+  }
+
+  .nav-brand {
+    font-size: 1.05rem;
+  }
+}
+
+/* 7. Hero Section */
 section.hero-section {
   padding-top: clamp(4rem, 8vw, 7.5rem);
   padding-bottom: clamp(3rem, 6vw, 5.5rem);
@@ -148,7 +269,7 @@ h1.hero-display-title {
   font-size: clamp(2.75rem, 7.5vw, 6rem);
   font-weight: 900;
   line-height: 1.04;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
   color: var(--ink);
   margin: 0;
@@ -156,9 +277,7 @@ h1.hero-display-title {
   flex-direction: column;
 }
 
-/* --------------------------------------------------------------------------
-   6. CASE STUDY SHOWCASE
-   -------------------------------------------------------------------------- */
+/* 8. Showcase Section (Grid & Visual Cards) */
 section.showcase-section {
   padding-bottom: clamp(5rem, 9vw, 8.5rem);
   display: flex;
@@ -179,7 +298,6 @@ article.project-showcase-row {
   }
 }
 
-/* Large Rounded Visual Mockup Cards — Completely Static */
 figure.card-visual {
   margin: 0;
   border-radius: var(--radius-card);
@@ -193,6 +311,8 @@ figure.card-visual {
 
 figure.card-visual img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .visual-salesforce {
@@ -221,8 +341,7 @@ figure.card-visual img {
   background-color: var(--card-scu);
 }
 
-/* Content Column */
-header.card-text-block {
+.card-text-block {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -247,18 +366,16 @@ ul.badge-list {
   border-radius: var(--radius-pill);
 }
 
-article.project-showcase-row h3 {
+article.project-showcase-row h2 {
   font-size: clamp(1.75rem, 3.5vw, 2.85rem);
   font-weight: 800;
   color: var(--ink);
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.005em;
   margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   TIGHT HOVER ACTIVATION SPACE (Only triggers directly on the button)
-   -------------------------------------------------------------------------- */
+/* 9. Interactive Action Links (Strict 44px Minimum Touch Target) */
 a.project-link,
 a.about-exp-link {
   font-size: clamp(1.15rem, 1.8vw, 1.45rem);
@@ -268,13 +385,12 @@ a.about-exp-link {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  /* Bounded tightly to text + arrow (no stray empty space activation) */
   width: fit-content;
   max-width: max-content;
   min-height: 44px;
   min-width: 44px;
   padding: 0.25rem 0.5rem;
-  margin-left: -0.5rem; /* Keeps text optically flush with the heading above */
+  margin-left: -0.5rem;
   border-radius: 4px;
   cursor: pointer;
   transform: translateX(0);
@@ -282,7 +398,7 @@ a.about-exp-link {
 }
 
 .link-text {
-  text-decoration: none; /* No underline in resting state */
+  text-decoration: none;
   transition: text-decoration 0.2s ease, text-underline-offset 0.2s ease;
 }
 
@@ -292,22 +408,20 @@ a.about-exp-link {
   text-decoration: none !important;
 }
 
-/* Hover activates ONLY when directly over the link itself */
 @media (hover: hover) and (pointer: fine) {
   a.project-link:hover,
   a.about-exp-link:hover {
-    transform: translateX(8px); /* The entire button moves */
+    transform: translateX(8px);
   }
 
   a.project-link:hover .link-text,
   a.about-exp-link:hover .link-text {
-    text-decoration: underline; /* Underline activates only on hover */
+    text-decoration: underline;
     text-underline-offset: 5px;
     text-decoration-thickness: 1.5px;
   }
 }
 
-/* Keyboard focus state (WCAG AAA) */
 a.project-link:focus-visible,
 a.about-exp-link:focus-visible {
   transform: translateX(8px);
@@ -319,7 +433,7 @@ a.about-exp-link:focus-visible .link-text {
   text-underline-offset: 5px;
 }
 
-/* 7. "A BIT ABOUT ME" Section (Exact Copy from Screenshot) */
+/* 10. "A BIT ABOUT ME" Section */
 section.about-section {
   padding-top: clamp(3.5rem, 7vw, 6rem);
   padding-bottom: clamp(4.5rem, 9vw, 8rem);
@@ -328,7 +442,7 @@ section.about-section {
 h2.about-display-title {
   font-size: clamp(2.75rem, 7vw, 5.5rem);
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
   color: var(--ink);
   margin: 0 0 1.75rem 0;
@@ -367,10 +481,11 @@ article.pillar-block p {
   margin: 0;
 }
 
-/* 8. Footer (Matching Screenshot) */
+/* 11. Footer (Clean Resting State, Underline on Hover) */
 footer.site-footer {
   padding-block: clamp(3.5rem, 7vw, 6rem) 5.5rem;
   background-color: var(--bg);
+  border-top: 1px solid rgba(19, 26, 52, 0.07);
 }
 
 .footer-container {
@@ -381,24 +496,34 @@ footer.site-footer {
 
 nav.footer-social-row {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
 }
 
 .footer-link {
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
   font-weight: 700;
   color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration: none; /* No underline at rest */
   min-height: 44px;
   min-width: 44px;
   display: inline-flex;
   align-items: center;
+  border-radius: 4px;
+  transition: color 0.18s ease;
 }
 
-.footer-link:hover {
-  text-underline-offset: 6px;
+@media (hover: hover) and (pointer: fine) {
+  .footer-link:hover {
+    text-decoration: underline; /* Underline activates on hover */
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+  }
+}
+
+.footer-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
 
 .footer-copy {
@@ -408,7 +533,7 @@ nav.footer-social-row {
   margin: 0;
 }
 
-/* 9. Accessible Floating Chat Assistant (Non-Obtrusive FAB) */
+/* 12. Accessible Floating Chat Assistant */
 #chat-widget {
   position: fixed;
   bottom: clamp(1rem, 2.5vw, 2rem);
@@ -469,7 +594,7 @@ nav.footer-social-row {
 }
 
 #chat-window header {
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1.5px solid rgba(19, 26, 52, 0.1);
   background-color: var(--pill-bg);
   display: flex;
@@ -480,6 +605,11 @@ nav.footer-social-row {
   color: var(--ink);
 }
 
+#chat-heading {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
 #chat-close {
   background: transparent;
   border: none;
@@ -487,6 +617,12 @@ nav.footer-social-row {
   font-weight: 800;
   cursor: pointer;
   color: var(--ink);
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
 }
 
 #chat-log {
@@ -555,7 +691,8 @@ nav.footer-social-row {
   border-radius: 8px;
   font-weight: 800;
   cursor: pointer;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
+  min-height: 44px;
 }
 
 /* Mobile Adjustments (< 520px) */
@@ -576,8 +713,12 @@ nav.footer-social-row {
   }
 }
 
-/* 10. Reduced Motion (WCAG 2.3.3) */
+/* 13. Reduced Motion (WCAG AAA 2.3.3) */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
