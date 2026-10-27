@@ -1367,3 +1367,276 @@ h2.case-section-heading {
     gap: 0.5rem;
   }
 }
+/* --------------------------------------------------------------------------
+   CASE STUDY TYPOGRAPHY & SECTIONS
+   -------------------------------------------------------------------------- */
+.case-date-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #55627A;
+  margin-bottom: 0.5rem;
+}
+
+.case-subheading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  color: var(--ink);
+  margin: 2rem 0 1rem 0;
+}
+
+.case-section h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 1.75rem 0 0.75rem 0;
+}
+
+.lead-paragraph {
+  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.cpo-highlight-banner {
+  background-color: #FFFFFF;
+  border-left: 4px solid var(--card-li);
+  border-radius: 0 12px 12px 0;
+  padding: 1.25rem 1.75rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 16px rgba(19, 26, 52, 0.03);
+}
+
+.cpo-highlight-banner p {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* Problem / Solution 2-Col */
+.overview-two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 640px) {
+  .overview-two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.overview-box {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(19, 26, 52, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px rgba(19, 26, 52, 0.03);
+}
+
+.box-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.overview-box p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #242D3D;
+}
+
+/* Deliverable Artifact Links */
+.project-artifacts-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin: 1.75rem 0;
+}
+
+.artifact-link {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.artifact-link:hover {
+  text-underline-offset: 6px;
+}
+
+.inline-text-link {
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* 3-Col Stats Grid */
+.stat-three-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .stat-three-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-context {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #55627A;
+}
+
+.stat-source {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #55627A;
+  margin-top: 0.5rem;
+}
+
+/* HMW Statement Card */
+.hmw-statement-card {
+  background-color: #FFFFFF;
+  border-left: 5px solid var(--card-li);
+  border-radius: 0 16px 16px 0;
+  padding: 2rem 2.25rem;
+  margin: 2.5rem 0;
+  box-shadow: 0 4px 16px rgba(19, 26, 52, 0.03);
+}
+
+.hmw-label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #084E96;
+  margin-bottom: 0.5rem;
+}
+
+.hmw-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* Lists and Grids */
+.expert-learnings-list,
+.takeaway-bullet-list {
+  margin: 1rem 0 1.75rem 1.25rem;
+  padding: 0;
+  color: #242D3D;
+  line-height: 1.7;
+}
+
+.expert-learnings-list li,
+.takeaway-bullet-list li {
+  margin-bottom: 0.65rem;
+}
+
+.opportunity-spaces-grid,
+.constraints-grid,
+.ai-considerations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .opportunity-spaces-grid,
+  .ai-considerations-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .constraints-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.opportunity-card,
+.constraint-item,
+.ai-card,
+.final-feature-block {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(19, 26, 52, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px rgba(19, 26, 52, 0.03);
+}
+
+.final-feature-block {
+  margin-bottom: 1.5rem;
+}
+
+.opportunity-card h4,
+.constraint-item h4,
+.ai-card h4,
+.final-feature-block h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 0.5rem 0;
+}
+
+.opportunity-card p,
+.constraint-item p,
+.ai-card p,
+.final-feature-block p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333F53;
+}
+
+.pitch-outcome-box,
+.acknowledgments-block {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(19, 26, 52, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px rgba(19, 26, 52, 0.03);
+}
+
+.pitch-outcome-box h3,
+.acknowledgments-block h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 0.75rem 0;
+}
+
+/* Visually Hidden Utility for Semantic Headings */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
