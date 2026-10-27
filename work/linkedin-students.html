@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LinkedIn for Students: A Product Design Case Study by Sarah Ahmed, Milap Patel, Khushi Shelat, and Shobha Dasari. From concept to executive pitch with LinkedIn CPO Tomer Cohen.">
+  <title>LinkedIn for Students Concept | Sarah Ahmed</title>
+  
+  <!-- Preload fonts to eliminate CLS and FOIT -->
+  <link rel="preload" href="../fonts/BrandonGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/selawk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- WCAG 2.4.1 Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Minimal Sticky Navbar -->
+  <header class="site-header">
+    <nav class="site-nav site-container" aria-label="Primary Navigation">
+      <a href="../index.html" class="nav-brand touch-target" aria-label="Sarah Ahmed - Home">
+        Sarah Ahmed
+      </a>
+
+      <ul class="nav-menu" role="list">
+        <li>
+          <a href="../index.html#work" class="nav-link touch-target">Projects</a>
+        </li>
+        <li>
+          <a href="../index.html#about" class="nav-link touch-target">About</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Landmark Main Content -->
+  <main id="main-content" class="case-study-main">
+
+    <!-- Hero Header Block -->
+    <header class="case-hero-section site-container">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="../index.html#work" class="back-link touch-target">
+          <span class="back-arrow" aria-hidden="true">←</span>
+          <span class="link-text">back to all projects</span>
+        </a>
+      </nav>
+
+      <ul class="badge-list" aria-label="Project categories">
+        <li><span class="badge">Product Design</span></li>
+        <li><span class="badge">Product Strategy</span></li>
+        <li><span class="badge">User Research</span></li>
+        <li><span class="badge">Go-To-Market</span></li>
+      </ul>
+
+      <h1 class="case-title">LinkedIn for Students Concept</h1>
+      <p class="case-subtitle">Over three months, four college students researched, designed, and validated a comprehensive student-centric experience on LinkedIn — pitching directly to 16 LinkedIn employees and LinkedIn's Chief Product Officer.</p>
+
+      <!-- Detailed Project Metadata Grid -->
+      <section class="case-meta-grid" aria-label="Project overview details">
+        <div class="meta-item">
+          <span class="meta-label">Team</span>
+          <span class="meta-value">Sarah Ahmed, Milap Patel, Khushi Shelat, Shobha Dasari</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Sarah's Role</span>
+          <span class="meta-value">Product Designer (UI/UX, Figma Prototypes, Design System)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Validation Scope</span>
+          <span class="meta-value">50+ User Interviews, ~200 Surveyed Students, 16 Pitches</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Outcome</span>
+          <span class="meta-value">Executive Review with CPO Tomer Cohen &amp; Product Team</span>
+        </div>
+      </section>
+
+      <!-- Large Visual Card -->
+      <figure class="case-hero-visual visual-linkedin">
+        <img 
+          src="https://cdn.prod.website-files.com/5f260c702480e11be0e68539/60eb607d446e3da45986cb8a_linkedin_iMac.png" 
+          alt="LinkedIn for Students desktop interface mockup displayed on an iMac" 
+          width="1024" 
+          height="640" 
+          loading="eager"
+        >
+      </figure>
+    </header>
+
+    <!-- Case Study Body -->
+    <article class="case-body-container site-container">
+
+      <!-- Section 1: Executive Summary & Context -->
+      <section class="case-section" aria-labelledby="exec-heading">
+        <h2 id="exec-heading" class="case-section-heading">Project Context: Bringing the Team Together</h2>
+        <p>In late 2020, Milap Patel (UC Davis '22) published an initial case study exploring "LinkedIn Coffee Chats." Around the same time, Khushi Shelat (Penn '23) and Shobha Dasari (Stanford '23) were exploring student career friction at the Product Buds Protothon. Recognizing a shared ambition to transform the early-career experience, they joined forces.</p>
+        <p>After the first week of initial discovery, the team recognized the need for an end-to-end product designer to translate complex research insights into high-fidelity prototypes that conformed strictly to LinkedIn's existing enterprise UI patterns—and that is where <strong>Sarah Ahmed (Santa Clara '21)</strong> stepped in as Lead Product Designer.</p>
+        <p>Over a rigorous three-month sprint, our virtual team interviewed <strong>50+ students</strong>, surveyed nearly <strong>200 participants</strong>, designed <strong>3 iterative prototype suites</strong>, conducted bottoms-up market sizing, and pitched to <strong>16 LinkedIn employees</strong> across Product, Design, and Business Development.</p>
+      </section>
+
+      <!-- Section 2: Understanding the Problem -->
+      <section class="case-section" aria-labelledby="problem-heading">
+        <h2 id="problem-heading" class="case-section-heading">Understanding the Problem: The Four Student Pain Points</h2>
+        <p>LinkedIn’s demographic data reveals that <strong>20.4% of its active user base is between 18 and 24 years old</strong>, representing more than <strong>46 million students and recent graduates</strong>. Yet, the platform's core information architecture remains optimized for established mid-to-senior professionals with decade-long resumes.</p>
+        <p>Through our preliminary interviews and subsequent survey of ~200 students, four distinct structural pain points emerged:</p>
+
+        <!-- 4 Key Data-Backed Cards -->
+        <div class="findings-grid findings-grid-2x2">
+          <article class="finding-card">
+            <span class="stat-badge">91% Dissatisfaction</span>
+            <h3>1. Pricing &amp; Value Gap</h3>
+            <p><strong>91% of surveyed students</strong> stated that LinkedIn Premium ($29.99+/mo) was not worth the cost. Standard Premium features (e.g., InMail credits, competitive salary insights) offer negligible value to students without established work histories.</p>
+            <blockquote class="user-quote">"I'd really like if LinkedIn discounted Premium for students and new grads who are searching for their first full-time job."</blockquote>
+          </article>
+
+          <article class="finding-card">
+            <span class="stat-badge">66% Cold Drop-off</span>
+            <h3>2. Mentorship &amp; Outreach Anxiety</h3>
+            <p>On average, <strong>66% of cold outreach messages</strong> sent by students lead nowhere. Students reported feeling significant anxiety about cold messaging senior professionals, fearing they would appear transactional or bothersome.</p>
+            <blockquote class="user-quote">"Sending out 50 cold messages with 2 responses shouldn't be the name of the game."</blockquote>
+          </article>
+
+          <article class="finding-card">
+            <span class="stat-badge">36% Dislike Rate</span>
+            <h3>3. Feed Toxicity &amp; Culture</h3>
+            <p><strong>36% of students</strong> identified the main feed as their least favorite LinkedIn feature. The prevailing culture of performative "humblebrags" and motivational corporate essays triggers acute imposter syndrome among job seekers.</p>
+            <blockquote class="user-quote">"I find the motivational posts on the feed to be fake, cringe-y, and not helpful at all (so I rarely read them)."</blockquote>
+          </article>
+
+          <article class="finding-card">
+            <span class="stat-badge">90% Demand</span>
+            <h3>4. The Entry-Level Job Paradox</h3>
+            <p><strong>90% of surveyed students</strong> requested dedicated student support in job hunting. Most listings labeled "entry-level" paradoxically demand 2 to 4 years of prior experience, discouraging qualified applicants.</p>
+            <blockquote class="user-quote">"It would be helpful if the Jobs side of LinkedIn was structured to better cater towards students."</blockquote>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section 3: The 3 Core Feature Sets -->
+      <section class="case-section" aria-labelledby="features-heading">
+        <h2 id="features-heading" class="case-section-heading">Developing the Solution: Three Core Pillars</h2>
+        <p>To directly address these pain points, we developed three deeply integrated feature sets within the LinkedIn ecosystem:</p>
+
+        <!-- Feature 1: Mentorship -->
+        <article class="feature-detail-block">
+          <div class="feature-header-row">
+            <span class="feature-number">Pillar 01</span>
+            <h3>Mentorship &amp; Structured Coffee Chats</h3>
+          </div>
+          <p>Rather than leaving mentorship to haphazard cold messaging, we created an intentional, low-friction pathway for student-professional networking:</p>
+          <ul class="feature-bullets">
+            <li><strong>"Open to Mentoring" Status:</strong> Professionals can toggle an opt-in badge indicating their willingness to give advice, specify their focus areas (e.g., resume review, portfolio critique, career transition), and cap monthly slots.</li>
+            <li><strong>1-Click Coffee Chat Scheduler:</strong> Native calendar integration allowing students to schedule 15-to-30 minute virtual sessions without exchanging emails or third-party links.</li>
+            <li><strong>Mutual Agenda Templates:</strong> Standardized prompt chips and pre-meeting agendas ensure both the student and mentor have clear expectations, maximizing the value of each call.</li>
+          </ul>
+        </article>
+
+        <!-- Feature 2: Feed -->
+        <article class="feature-detail-block">
+          <div class="feature-header-row">
+            <span class="feature-number">Pillar 02</span>
+            <h3>Student Hub &amp; Smart Content Filtration</h3>
+          </div>
+          <p>We reimagined the feed to deliver peer-to-peer solidarity, actionable career advice, and academic relevance:</p>
+          <ul class="feature-bullets">
+            <li><strong>Dedicated Student Hub:</strong> A focused community space featuring hackathon announcements, scholarship opportunities, club collaborations, and peer-to-peer Q&amp;A.</li>
+            <li><strong>Granular Feed Filters:</strong> Users can mute corporate flex posts, boastful status updates, or specific keywords while prioritizing industry insights, entry-level recruiting tips, and university alumni updates.</li>
+          </ul>
+        </article>
+
+        <!-- Feature 3: Jobs -->
+        <article class="feature-detail-block">
+          <div class="feature-header-row">
+            <span class="feature-number">Pillar 03</span>
+            <h3>Early-Career Job Tracker &amp; Skill Bridge</h3>
+          </div>
+          <p>Bridging the gap between academic coursework and real-world hiring prerequisites:</p>
+          <ul class="feature-bullets">
+            <li><strong>Embedded Application Tracker:</strong> A Kanban-style dashboard within LinkedIn Jobs enabling students to monitor application stages, follow-up deadlines, and recruiter responses.</li>
+            <li><strong>Percentage Match Score:</strong> Algorithms analyze student project portfolios and coursework to generate an accurate readiness score.</li>
+            <li><strong>LinkedIn Learning Integration:</strong> Direct skill-gap bridges on job postings. If an internship requires SQL, LinkedIn automatically links a 20-minute targeted course module to help the student achieve a 100% match.</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Section 4: Iterative Testing & User Feedback -->
+      <section class="case-section" aria-labelledby="testing-heading">
+        <h2 id="testing-heading" class="case-section-heading">Testing &amp; Iteration: 50+ Think-Aloud Sessions</h2>
+        <p>To validate our designs, Sarah built interactive prototypes in Figma, and the team conducted <strong>20-minute Zoom usability tests with over 50 students</strong> from diverse academic institutions.</p>
+        
+        <p>Participants shared their screens and used a "think-aloud" protocol while navigating the Mentorship, Feed, and Jobs prototypes. We synthesized the sessions using a strict color-coded quadrant matrix:</p>
+
+        <div class="matrix-grid">
+          <div class="matrix-card card-green">
+            <h4>🟢 What Worked (Validated Strengths)</h4>
+            <p>Students loved the intuitive coffee chat scheduling and expressed high enthusiasm for the embedded job application tracker, noting it would eliminate disparate spreadsheets.</p>
+          </div>
+          <div class="matrix-card card-red">
+            <h4>🔴 What Failed (Constructive Critiques)</h4>
+            <p>Initial mentorship prototypes lacked time boundaries; students worried mentors would feel overwhelmed. We introduced strict 15/30-minute time caps and monthly session limits.</p>
+          </div>
+          <div class="matrix-card card-orange">
+            <h4>🟠 UI &amp; Interactivity Friction</h4>
+            <p>Certain filter dropdowns inside the Student Hub were buried. Sarah restructured the navigation bar to sit prominently below the global search bar, matching LinkedIn's web hierarchy.</p>
+          </div>
+          <div class="matrix-card card-yellow">
+            <h4>🟡 Opportunities &amp; New Ideas</h4>
+            <p>Students requested post-meeting note templates and icebreaker prompts. We added automated follow-up thank-you templates to foster lasting relationships.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Go-to-Market Strategy & Market Sizing -->
+      <section class="case-section" aria-labelledby="gtm-heading">
+        <h2 id="gtm-heading" class="case-section-heading">Go-To-Market Strategy &amp; Business Case</h2>
+        <p>A great product design requires an equally strong business rationale. For a mature enterprise platform like LinkedIn, feature proposals must support company-level OKRs and revenue models.</p>
+
+        <div class="business-case-block">
+          <h3>Bottoms-Up Market Sizing: $1.1B TAM</h3>
+          <p>We performed a bottoms-up market analysis to quantify the revenue potential of student adoption:</p>
+          <div class="formula-box">
+            <code>184M (18–24 Year-Olds on LinkedIn) × 60% (Willingness to Pay) × $10/year = $1.1 Billion Annual Market Opportunity</code>
+          </div>
+          <p>The 18–24 demographic on LinkedIn grew <strong>30% faster than the platform's overall user base</strong> over the preceding four-year period, representing the single most critical pipeline for long-term subscriber lifetime value (LTV).</p>
+        </div>
+
+        <div class="gtm-subsections">
+          <article class="gtm-card">
+            <h4>B2B2C University Licensing Model</h4>
+            <p>Rather than placing financial strain on individual students, we proposed partnering directly with university career centers. Universities pay an annual tier-based institutional fee (benchmarked against Handshake and Symplicity) to grant students complimentary access to LinkedIn for Students.</p>
+          </article>
+
+          <article class="gtm-card">
+            <h4>Competitive Moat Analysis</h4>
+            <p>We examined niche competitors across each pillar: <strong>Ladder</strong> (community feed), <strong>Mentor Mesh</strong> (mentorship), and <strong>Handshake</strong> (campus recruiting). LinkedIn's insurmountable advantage remains its global directory of verified alumni, corporate decision-makers, and hiring managers.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section 6: Pitching to LinkedIn Leadership -->
+      <section class="case-section" aria-labelledby="pitch-heading">
+        <h2 id="pitch-heading" class="case-section-heading">Pitching to LinkedIn &amp; Meeting the CPO</h2>
+        <p>Early on, we resolved not to design in a vacuum. We initiated cold outreach to LinkedIn professionals across Product Management, UX Design, Corporate Strategy, and Engineering. Over two weeks, we conducted <strong>eight 30-minute pitch sessions with 16 LinkedIn employees</strong>, iterating on our slide deck after every meeting based on internal feedback.</p>
+
+        <blockquote class="case-quote-block">
+          <p>"By late February, after sharing our Whitepaper and 2-minute pitch video on LinkedIn, the post gained viral traction across the product community—and caught the attention of Tomer Cohen, LinkedIn's Chief Product Officer."</p>
+        </blockquote>
+
+        <div class="cpo-meeting-card">
+          <h3>The Executive Review with Tomer Cohen (CPO)</h3>
+          <p>Tomer Cohen commented on the post and requested a formal meeting. In March, our team attended an exhilarating <strong>25-minute executive pitch session</strong> with Tomer. We prepared a concise one-pager explicitly mapping our proposed features to LinkedIn's overarching mission: <em>"Connect the world's professionals to make them more productive and successful."</em></p>
+          <p>Tomer expressed deep interest in our data on the 18–24 cohort and the psychological nuances of student networking. Following the presentation, he connected our team with <strong>Liam Walsh, Head of Product Recruiting at LinkedIn</strong>, who coordinated individual coffee chats and mentorship sessions for each of us.</p>
+        </div>
+      </section>
+
+      <!-- Section 7: Reflections & Sarah's Key Takeaways -->
+      <section class="case-section" aria-labelledby="reflections-heading">
+        <h2 id="reflections-heading" class="case-section-heading">Reflections &amp; Product Takeaways</h2>
+        <div class="reflections-grid">
+          <article class="reflection-item">
+            <h3>1. Design Within Enterprise Design Systems</h3>
+            <p>Designing for a platform with hundreds of millions of users taught me the balance between innovation and pattern consistency. By adopting LinkedIn's established typography, spacing, and icon grid, the new features felt native rather than foreign.</p>
+          </article>
+
+          <article class="reflection-item">
+            <h3>2. Microcopy and Psychological Safety</h3>
+            <p>For early-career job seekers, UI friction is often emotional rather than technical. Thoughtful content design—such as pre-composed conversation starters and transparent status badges—transformed an intimidating process into an inviting experience.</p>
+          </article>
+
+          <article class="reflection-item">
+            <h3>3. Product Design Is Business Strategy</h3>
+            <p>A compelling interface is only half the battle. Backing our designs with bottoms-up market sizing ($1.1B TAM) and an enterprise B2B2C licensing model was what earned us credibility in the executive room.</p>
+          </article>
+        </div>
+
+        <!-- Acknowledgments Block -->
+        <div class="acknowledgments-card">
+          <h3>Special Thanks &amp; Acknowledgments</h3>
+          <p>We are immensely grateful to the LinkedIn team members who gave us their time, candid feedback, and guidance throughout this sprint: <strong>Irina Skripnik, Chris Szeto, Brandon Quinn, Stephanie Ryan, Rohan Punamia, Angie Q. Wang, Jeff Zhao, Nikita Khandwala, Priyanka Bhupalam, Ishan Sinha, Whitney Chan, and Sohyung Kang.</strong></p>
+          <p class="team-signature">Proudly created by <strong>Milap Patel, Khushi Shelat, Shobha Dasari, and Sarah Ahmed</strong>.</p>
+        </div>
+      </section>
+
+      <!-- Project Pagination Switcher -->
+<section class="next-showcase-section" aria-labelledby="next-showcase-eyebrow">
+  <header class="next-showcase-header">
+    <span class="next-eyebrow" id="next-showcase-eyebrow">NEXT CASE STUDY</span>
+  </header>
+
+  <!-- Open 50/50 Row (Matches Homepage Style) -->
+  <article class="project-showcase-row next-row">
+    <!-- Visual Mockup Card (SCU Blush Pink) -->
+    <figure class="card-visual visual-scu">
+      <img 
+        src="https://cdn.prod.website-files.com/5f260c702480e11be0e68539/60eb60533a867a6b78d86893_scu_imac.png" 
+        alt="Santa Clara University Archives redesign mockup displayed on an iMac" 
+        width="400" 
+        height="300" 
+        loading="lazy"
+      >
+    </figure>
+
+    <!-- Content Block -->
+    <div class="card-text-block">
+
+      <h2 class="next-project-heading">UX Design and Research @ Santa Clara University</h2>
+      <p class="next-project-summary">Simplifying the process of finding research resources by making an academic website more navigable and scannable.</p>
+
+      <a href="../index.html#work" class="project-link touch-target" aria-label="Read the Santa Clara University case study">
+        <span class="link-text">read the case study</span>
+        <span class="arrow-icon" aria-hidden="true">➔</span>
+      </a>
+    </div>
+  </article>
+</section>
+
+    </article>
+  </main>
+
+  <!-- Editorial Warm Footer -->
+  <footer id="contact" class="site-footer">
+    <section class="site-container footer-container">
+      <nav class="footer-social-row" aria-label="Footer Contact Links">
+        <a href="https://github.com/sarah-ahm" target="_blank" rel="noopener noreferrer" class="footer-link touch-target">
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/sarahahmed31415/" target="_blank" rel="noopener noreferrer" class="footer-link touch-target">
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:hello@thesarahahmed.com?subject=Hey%20Sarah!" class="footer-link touch-target">
+          <span>Email</span>
+        </a>
+      </nav>
+
+      <p class="footer-copy">
+        © 2024 Designed by Sarah Ahmed with ❤️ + ☕ + 😂<br>
+        Based in Southern California
+      </p>
+    </section>
+  </footer>
+
+  <!-- Compact Floating Chat Assistant -->
+  <aside id="chat-widget" aria-label="Portfolio Assistant Widget">
+    <section id="chat-window" role="region" aria-labelledby="chat-heading" hidden>
+      <header>
+        <h3 id="chat-heading">Assistant // Sarah Ahmed</h3>
+        <button type="button" id="chat-close" aria-label="Close Assistant Window">✕</button>
+      </header>
+      
+      <section id="chat-log" aria-live="polite" aria-atomic="false" tabindex="0" aria-label="Conversation History">
+        <p class="chat-bubble chat-bubble-bot">Hey! I'm Sarah's portfolio assistant. Ask any question regarding the LinkedIn for Students concept, our user testing with 50+ students, or our pitch to Tomer Cohen.</p>
+      </section>
+
+      <form id="chat-form">
+        <label for="chat-input">Input Query</label>
+        <input type="text" id="chat-input" name="message" required placeholder="e.g., Tell me about the pitch to the CPO..." autocomplete="off">
+        <button type="submit" id="chat-submit">Send</button>
+      </form>
+    </section>
+
+    <button type="button" id="chat-toggle" aria-expanded="false" aria-controls="chat-window" aria-label="Open Chat Assistant">
+      <svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span class="chat-toggle-text">Chat</span>
+    </button>
+  </aside>
+
+  <script src="../app.js"></script>
+</body>
+</html>
